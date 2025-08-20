@@ -303,7 +303,7 @@ require_once 'src/database/auth.php';
     <div id="empresa" class="header_hero">
         <ul id="redes" class="header_social d-none d-lg-block">
             <li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
-            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="https://www.instagram.com/aurorability.it?igsh=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i></a></li>
         </ul>
         <div class="container">
             <div class="row align-items-center justify-content-center justify-content-lg-between">
