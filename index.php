@@ -400,7 +400,7 @@ require_once 'src/database/auth.php';
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body p-0">
-                    <iframe class="modal-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1"
+                    <iframe class="modal-video" src="./src/video/2025-08-18-08-43-07.mp4" title="Video 1"
                         frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
@@ -412,7 +412,7 @@ require_once 'src/database/auth.php';
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body p-0">
-                    <iframe class="modal-video" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video 2"
+                    <iframe class="modal-video" src="./src/video/2025-08-18-08-46-09.mp4" title="Video 2"
                         frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
