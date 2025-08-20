@@ -211,7 +211,6 @@ require_once 'src/database/auth.php';
                 <div class="tour-card position-relative">
                     <div class="position-relative">
                         <img src="src/img/card1.jpg" alt="Beach" class="tour-image">
-                        <span class="price-tag">$399,00</span>
                     </div>
                     <div class="p-3">
                         <h5 class="fw-bold">Plano Básico</h5>
@@ -233,7 +232,6 @@ require_once 'src/database/auth.php';
                 <div class="tour-card position-relative">
                     <div class="position-relative">
                         <img src="src/img/card2.jpeg" alt="Arctic" class="tour-image">
-                        <span class="price-tag">$799,00</span>
                     </div>
                     <div class="p-3">
                         <h5 class="fw-bold">Plano Intermediário</h5>
@@ -255,7 +253,6 @@ require_once 'src/database/auth.php';
                 <div class="tour-card position-relative">
                     <div class="position-relative">
                         <img src="src/img/card2.webp" alt="Sahara" class="tour-image">
-                        <span class="price-tag">$1.299,00</span>
                     </div>
                     <div class="p-3">
                         <h5 class="fw-bold">Plano Pro</h5>
@@ -276,7 +273,6 @@ require_once 'src/database/auth.php';
                 <div class="tour-card position-relative">
                     <div class="position-relative">
                         <img src="src/img/card2.webp" alt="Sahara" class="tour-image">
-                        <span class="price-tag">$1.299,00</span>
                     </div>
                     <div class="p-3">
                         <h5 class="fw-bold">Plano Personalizado</h5>
@@ -307,9 +303,7 @@ require_once 'src/database/auth.php';
     <div id="empresa" class="header_hero">
         <ul id="redes" class="header_social d-none d-lg-block">
             <li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
-            <li><a href="#"><i class="bi bi-github"></i></a></li>
             <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
         </ul>
         <div class="container">
             <div class="row align-items-center justify-content-center justify-content-lg-between">
@@ -362,7 +356,7 @@ require_once 'src/database/auth.php';
                     <p class="small">
                         Site desenvolvido para mostrar sobre o estudo e a história da computação quantica 
                     </p>
-                    <small>Quântun<br>12/01/2021 - 03/12/2022</small>
+                    <small>Quântun<br>14/06/2023 - 10/11/2023</small>
                 </div>
             </div>
 
@@ -384,7 +378,7 @@ require_once 'src/database/auth.php';
                     <p class="small">
                        Site voltado para venda de jogos incriveis para sua diversão
                     </p>
-                    <small>Play on<br>10/26/20 - 10/24/20</small>
+                    <small>Play on<br>27/02/2024 - 25/10/2024</small>
                 </div>
             </div>
 

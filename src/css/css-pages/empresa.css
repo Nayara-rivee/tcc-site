@@ -27,121 +27,6 @@
             /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
         }
 
-
-        .section-title {
-            margin: 50px 0 30px;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .social-icons a {
-            margin-right: 10px;
-            color: #000;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 20px;
-            background-color: none;
-            border:1px #fff solid ;
-            width: 45px;
-            height: 45px;
-            font-size: 24px;
-        }
-        .social-icons a:hover {
-            background-color: #0c584e93;
-            border:1px #fff solid ;
-        }
-
-        .card-project {
-            background-color: none;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .progress {
-            height: 20px;
-        }
-
-        .area-social {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-        }
-
-        .area-design {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-        }
-
-        .area-design .cards-designs .designers {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .area-design .cards-designs {
-            display: flex;
-            justify-content: center;
-        }
-
-        .area-documentadora {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-        }
-
-        .container-documentadora {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .card {
-            background: none;
-            border-radius: 100px;
-            border: none;
-        }
-
-        .container-programador {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-
-        }
-
-        .area-programadores {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-        }
-
-
-        .card-programador {
-            background-color: none;
-            border: none;
-            border-radius: 20px;
-            color: #fff;
-        }
-
-        .card-programador img {
-            height: 330px;
-            width: 300px;
-        }
-
-        .area-analista {
-            background-color: #f2f2f852;
-            border-radius: 100px;
-        }
-
-        .area-section {
-            padding: 40px 20px;
-            color: white;
-            margin-top: 20px;
-        }
-
         .hero {
             min-height: 100vh;
             position: relative;
@@ -958,3 +843,218 @@
             color: #b89cfe;
         }
     
+        
+/*--------------------------------------------------------------
+# Chefs Section
+--------------------------------------------------------------*/
+.chefs {
+  /* Custom properties */
+  --card-radius: 14px;
+  --photo-radius: 18px;
+  --shadow-color: color-mix(in srgb, var(--default-color), transparent 92%);
+  --soft-border: color-mix(in srgb, var(--default-color), transparent 85%);
+  --muted-text: color-mix(in srgb, var(--default-color), transparent 40%);
+  --accent-soft: color-mix(in srgb, var(--accent-color), transparent 85%);
+  --accent-tint: color-mix(in srgb, var(--accent-color), white 85%);
+}
+
+.chefs .featured-chef .chef-photo {
+  position: relative;
+  border-radius: var(--photo-radius);
+  overflow: hidden;
+  box-shadow: 0 16px 40px var(--shadow-color);
+}
+
+.chefs .featured-chef .chef-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.chefs .featured-chef .chef-photo:hover img {
+  transform: scale(1.05);
+}
+
+.chefs .featured-chef .chef-photo .badge-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+.chefs .featured-chef .chef-photo .badge-overlay .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  color: var(--default-color);
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-soft);
+}
+
+.chefs .featured-chef .chef-photo .badge-overlay .pill i {
+  color: var(--accent-color);
+}
+
+.chefs .featured-chef .chef-content .topline {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.chefs .featured-chef .chef-content .name {
+  margin: 0 0 6px 0;
+}
+
+.chefs .featured-chef .chef-content .role {
+  margin: 0;
+  color: var(--muted-text);
+  font-weight: 500;
+}
+
+.chefs .featured-chef .chef-content .bio {
+  max-width: 56ch;
+}
+
+.chefs .featured-chef .chef-content .awards .award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--default-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border: 1px solid var(--accent-soft);
+}
+
+.chefs .featured-chef .chef-content .awards .award-badge i {
+  color: var(--accent-color);
+}
+
+.chefs .featured-chef .chef-content .signature img {
+  max-width: 150px;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 6px var(--shadow-color));
+}
+
+.chefs .team-grid .chef-card {
+  background: var(--surface-color);
+  border: 1px solid var(--soft-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 12px 32px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chefs .team-grid .chef-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.chefs .team-grid .chef-card .image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+}
+
+.chefs .team-grid .chef-card .image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
+.chefs .team-grid .chef-card .image-wrapper .social {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+}
+
+.chefs .team-grid .chef-card .image-wrapper .social a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--background-color);
+  color: var(--default-color);
+  border: 1px solid var(--soft-border);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.chefs .team-grid .chef-card .image-wrapper .social a:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.chefs .team-grid .chef-card:hover .image-wrapper img {
+  transform: scale(1.06);
+}
+
+.chefs .team-grid .chef-card:hover .image-wrapper .social {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chefs .team-grid .chef-card .content .name {
+  margin: 0;
+}
+
+.chefs .team-grid .chef-card .content .role {
+  color: var(--muted-text);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.chefs .team-grid .chef-card .content .excerpt {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 12px;
+}
+
+.chefs .team-grid .chef-card .content .mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  color: var(--default-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border: 1px solid var(--accent-soft);
+}
+
+.chefs .team-grid .chef-card .content .mini-badge i {
+  color: var(--accent-color);
+}
+
+.chefs .swiper-wrapper {
+  height: auto !important;
+}
+
+@media (max-width: 768px) {
+  .chefs .featured-chef .chef-content .bio {
+    max-width: 100%;
+  }
+
+  .chefs .team-grid .chef-card .image-wrapper .social a {
+    width: 34px;
+    height: 34px;
+  }
+}

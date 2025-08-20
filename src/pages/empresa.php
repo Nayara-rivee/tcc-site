@@ -100,15 +100,11 @@ require_once '../database/auth.php';
                             <div class="hero-text">
                                 <h1>Porti<span class="accent-text">folio</span></h1>
                                 <h2>Aurora Ability IT</h2>
-                                <p class="description">Passionate about creating exceptional digital experiences that
-                                    blend innovative design with functional development. Let's bring your vision to
-                                    life.</p>
+                                <p class="description">Somos apaixonados por criar experiências digitais únicas que unem design criativo com desenvolvimento funcional. Nosso objetivo é transformar ideias em soluções digitais que inspiram, conectam e geram resultados.</p>
 
                                 <div class="social-links">
-                                    <a href="#"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://www.instagram.com/aurorability.it?igsh=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i></a>
                                     <a href="#"><i class="bi bi-whatsapp"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -117,14 +113,8 @@ require_once '../database/auth.php';
                             <div class="hero-visual">
                                 <div class="profile-container">
                                     <div class="profile-background"></div>
-                                    <img src="../img/equipe/grupo/grupo.jpeg" alt="Alexander Chen"
+                                    <img src="../img/logo/segunda-opcao-logo.png" alt="Alexander Chen"
                                         class="profile-image">
-                                    <div class="floating-elements">
-                                        <div class="floating-icon icon-1"><i class="bi bi-palette"></i></div>
-                                        <div class="floating-icon icon-2"><i class="bi bi-code-slash"></i></div>
-                                        <div class="floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
-                                        <div class="floating-icon icon-4"><i class="bi bi-graph-up"></i></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -210,11 +200,7 @@ require_once '../database/auth.php';
                                 <div class="contact-links">
                                     <a href="mailto:marcus@example.com" class="contact-item">
                                         <i class="bi bi-envelope"></i>
-                                        marcus@example.com
-                                    </a>
-                                    <a href="tel:+15551234567" class="contact-item">
-                                        <i class="bi bi-telephone"></i>
-                                        +1 (555) 123-4567
+                                        aurorait12345@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -228,12 +214,7 @@ require_once '../database/auth.php';
                             </div>
 
                             <div class="description">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                    architecto beatae vitae dicta sunt explicabo.</p>
-
-                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                                    laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+                                <p>Trabalhamos para desenvolver soluções inovadoras que combinam tecnologia, estética e usabilidade. Cada projeto é pensado para atender às necessidades do cliente, entregando qualidade, funcionalidade e impacto.</p>
                             </div>
 
                             <div class="stats-grid">
@@ -250,12 +231,8 @@ require_once '../database/auth.php';
                             <div class="details-grid">
                                 <div class="detail-row">
                                     <div class="detail-item">
-                                        <span class="detail-label">Languages</span>
-                                        <span class="detail-value">English, Spanish, French</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Experience Level</span>
-                                        <span class="detail-value">Senior Professional</span>
+                                        <span class="detail-label">Linguagens</span>
+                                        <span class="detail-value">Inglês e Espanhol</span>
                                     </div>
                                 </div>
                             </div>
@@ -277,260 +254,154 @@ require_once '../database/auth.php';
 
 
 
-    <!-- Gestão de Redes Sociais -->
-    <section class="area-section area-social">
-        <div class="container">
-            <h2 class="section-title">Gestão de Redes Sociais</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="../img/equipe/aline.jpeg" class="profile-img mb-3" alt="">
-                    <h4>Aline Hosen</h4>
-                    <p>Especialista em campanhas no Instagram e TikTok.</p>
-                    <div class="mb-2">
-                        <strong>Marketing Criativo</strong>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" style="width: 90%">90%</div>
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        <strong>Planejamento Estratégico</strong>
-                        <div class="progress">
-                            <div class="progress-bar bg-secondary" style="width: 75%">75%</div>
-                        </div>
-                    </div>
-                    <div class="social-icons">
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark">
-                            <i class="bi bi-github"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-instagram"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-whatsapp"></i></a>
-                    </div>
+    <!-- Chefs Section -->
+    <section id="chefs" class="chefs section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <span class="description-title">Empresa</span>
+            <h2>Nossa equipe</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="featured-chef row align-items-center g-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-lg-5">
+                    <figure class="chef-photo m-0">
+                        <img src="../img/equipe/grupo/grupo.jpeg" alt="Executive chef portrait" class="img-fluid">
+                    </figure>
                 </div>
-                <div class="col-md-6">
-                    <div class="card-project">
-                        <h5>Campanha Primavera 2024</h5>
-                        <p>Engajamento cresceu 120% em 3 semanas com reels e posts diários.</p>
-                    </div>
-                    <div class="card-project">
-                        <h5>Promoção Natal 2023</h5>
-                        <p>Criação de conteúdos animados e sorteios ao vivo.</p>
+
+                <div class="col-lg-7">
+                    <div class="chef-content">
+                        <h3 class="name">Aurora Ability</h3>
+                        <p class="role mb-3">Quem somos?</p>
+                        <p class="bio mb-4">Somos uma equipe dedicada, unindo criatividade e conhecimento técnico para desenvolver projetos que fazem a diferença. Acreditamos no poder da tecnologia como ferramenta de transformação, e trabalhamos juntos para entregar resultados que superam expectativas</p>
                     </div>
                 </div>
             </div>
+
+            <div class="row g-4 team-grid mt-2">
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/alana.jpeg" alt="Sous chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Allana</h4>
+                            <p class="role mb-2">Analista de software</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/aline.jpeg" alt="Pastry chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Aline Hosen</h4>
+                            <p class="role mb-2">Gestão de social mídia</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/izabela.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Iza Tinico</h4>
+                            <p class="role mb-2">Design</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/maria-eduarda.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Maria Eduarda Simões</h4>
+                            <p class="role mb-2">Documentadora</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/nayara.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Nayara</h4>
+                            <p class="role mb-2">Programadora</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/nickolas.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Nickolas</h4>
+                            <p class="role mb-2">Programador</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <article class="chef-card h-100">
+                        <div class="image-wrapper">
+                            <img src="../img/equipe/bruno.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <ul class="social list-unstyled m-0">
+                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="content p-3">
+                            <h4 class="name mb-1">Bruno Rufino</h4>
+                            <p class="role mb-2">Design</p>
+                        </div>
+                    </article>
+                </div><!-- End Chef Card -->
+
+
+
+            </div>
+
         </div>
-    </section>
 
-    <!-- Design Gráfico -->
-    <section class="area-section area-design">
-        <div class="container">
-            <h2 class="section-title">Design Gráfico</h2>
-            <div class="row">
-                <div class="cards-designs col-md-4">
-                    <div class="designers">
-                        <div class="text-center">
-                            <img src="../img/equipe/bruno.jpeg" class="profile-img" alt="">
-                            <h4>Bruno Rufino</h4>
-                            <p>Designer</p>
-                            <div class="social-icons">
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"> <i class="bi bi-github"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-instagram"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-whatsapp"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <img src="../img/equipe/izabela.jpeg" class="profile-img" alt="">
-                            <h4>Izabela Tinoco</h4>
-                            <p>Designer</p>
-                            <div class="social-icons">
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"> <i class="bi bi-github"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-instagram"></i></a>
-                                <a href="https://linkedin.com/in/anacode" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="bi bi-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="https://via.placeholder.com/300x200" class="img-fluid rounded shadow" alt="">
-                            <p class="text-center">Logo para Aurora Café</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="https://via.placeholder.com/300x200" class="img-fluid rounded shadow" alt="">
-                            <p class="text-center">Cartaz de evento musical</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Documentadora -->
-    <section class="area-section area-documentadora">
-        <div class="container container-documentadora">
-            <h2 class="section-title">Documentadora</h2>
-            <div class="d-flex align-items-center">
-                <img src="../img/equipe/maria-eduarda.jpeg" class="profile-img me-4" alt="">
-                <div>
-                    <h4>Maria Eduarda Simões</h4>
-                    <p>Responsável por toda documentação técnica e tutoriais internos.</p>
-                    <ul>
-                        <li>Manual de sistemas da empresa</li>
-                        <li>Documentação da API Aurora</li>
-                    </ul>
-                    <div class="social-icons">
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark">
-                            <i class="bi bi-github"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-instagram"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programadores -->
-    <section class="container-programador my-5" id="programadores">
-        <h2 class="mb-4 text-center fw-bold" style="color: #fff;">Equipe de Programadores</h2>
-
-        <div class="row session-programdador  gy-4">
-            <!-- Programador 1 -->
-            <div class="card col-md-6">
-                <div class="card-programador">
-                    <div class="row g-0">
-                        <div class="col-md-4 d-flex align-items-center justify-content-center p-3">
-                            <img src="../img/equipe/nayara.jpeg" class="img-fluid rounded-circle" alt="Programador 1">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nayara Silva</h5>
-                                <p class="card-text">Back-end especialista em PHP e Desenvolvimento Mobile com React
-                                    Native</p>
-                                <p class="mb-1">PHP</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info"
-                                        style="width: 90%; background-color: #287697 !important;">90%</div>
-                                </div>
-                                <p class="mb-1">Laravel</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info"
-                                        style="width: 80%; background-color: #287697 !important;">80%</div>
-                                </div>
-                                <p class="mb-1">Projetos:</p>
-                                <ul class="list-unstyled">
-                                    <li>🔹 Sistema de login seguro para e-commerce</li>
-                                    <li>🔹 API RESTful para mobile</li>
-                                </ul>
-                                <div class="social-icons">
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"> <i class="bi bi-github"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-instagram"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-whatsapp"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Programador 2 -->
-            <div class="card col-md-6">
-                <div class="card-programador">
-                    <div class="row g-0">
-                        <div class="col-md-4 d-flex align-items-center justify-content-center p-3">
-                            <img src="../img/equipe/nickolas.jpeg" class="img-fluid rounded-circle" alt="Programador 2">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nickolas Cremasco</h5>
-                                <p class="card-text">Front-end com experiência em React e UI/UX.</p>
-                                <p class="mb-1">React</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info"
-                                        style="width: 85%; background-color: #287697 !important;">85%</div>
-                                </div>
-                                <p class="mb-1">HTML/CSS</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info"
-                                        style="width: 95%; background-color: #287697 !important;">95%</div>
-                                </div>
-                                <p class="mb-1">Projetos:</p>
-                                <ul class="list-unstyled">
-                                    <li>🔹 Landing page para startup de educação</li>
-                                    <li>🔹 Dashboard interativo com React</li>
-                                </ul>
-                                <div class="social-icons">
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"> <i class="bi bi-github"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-instagram"></i></a>
-                                    <a href="https://linkedin.com/in/anacode" target="_blank"
-                                        class="btn btn-sm btn-outline-dark"><i class="bi bi-whatsapp"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Analista de Software -->
-    <section class="area-section area-analista">
-        <div class="container">
-            <h2 class="section-title">Analista de Software</h2>
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <img src="../img/equipe/alana.jpeg" class="profile-img" alt="">
-                    <h4>Alana</h4>
-                    <p>Analisa requisitos, desenha sistemas e integra equipes.</p>
-                    <div class="social-icons">
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark">
-                            <i class="bi bi-github"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-instagram"></i></a>
-                        <a href="https://linkedin.com/in/anacode" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="bi bi-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="card-project">
-                        <h5>Sistema de Gestão de Contratos</h5>
-                        <p>Desenvolvido com foco em performance e escalabilidade.</p>
-                    </div>
-                    <div class="card-project">
-                        <h5>Dashboard de KPIs</h5>
-                        <p>Monitoração de dados em tempo real usando Node.js e Chart.js.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section><!-- /Chefs Section -->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
