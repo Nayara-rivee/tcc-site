@@ -46,6 +46,14 @@ require_once 'src/database/auth.php';
 </head>
 
 <body>
+    <!-- libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <!-- end libras -->
 
     <!-- ======== header start ======== -->
     <header class="header">
@@ -79,9 +87,6 @@ require_once 'src/database/auth.php';
                                     </li>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#servicos">Serviços</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="src/pages/planos.php">Planos</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -130,7 +135,7 @@ require_once 'src/database/auth.php';
                             Comece agora sua jornada digital com propósito.
                         </p>
                         <a
-                            href="src/pages/planos.php"
+                            href="#planos"
                             class="main-btn border-btn btn-hover wow fadeInUp"
                             data-wow-delay=".6s">Começar agora</a>
                     </div>
@@ -199,97 +204,171 @@ require_once 'src/database/auth.php';
     </section>
     <!-- ======== feature-section end ======== -->
 
-    <div class="container py-5">
-        <div class="text-center mb-5">
-            <small class="text-uppercase text-secondary fw-bold">Planos</small>
-            <h2 class="fw-bold mt-2">Nossos <span>Planos</span></h2>
+    <!-- Planos Section -->
+    <section class="container-fluid py-5 bg-light" id="planos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nossos <span class="text-primary">Planos</span></h2>
+                <p class="text-muted">Escolha o plano ideal para o seu negócio</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden tour-card">
+                        <div class="position-relative">
+                            <img src="src/img/card1.jpg" class="card-img-top" alt="Plano Básico"
+                                style="height: 200px; object-fit: cover;">
+                            <span
+                                class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$2,490</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Plano Básico</h5>
+                            <p class="card-text text-muted small">Ideal para quem está começando. Entregamos o essencial
+                                com velocidade e simplicidade.</p>
+
+                            <ul class="list-group list-group-flush mb-3 border-0">
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Design:</strong> Usamos um template, adaptamos as cores e logo.
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Dev:</strong> Página única com HTML/CSS (landing page).
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Social Media:</strong> Criamos o perfil e postamos 1x por semana.
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto">
+                                <div class="mb-3">
+                                    <span
+                                        class="badge bg-light text-dark border rounded-pill me-1 mb-1">Essencial</span>
+                                    <span class="badge bg-light text-dark border rounded-pill me-1 mb-1">Pronto Pra
+                                        Usar</span>
+                                    <span class="badge bg-light text-dark border rounded-pill mb-1">Rápido</span>
+                                </div>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php else : ?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden tour-card">
+                        <div class="position-relative">
+                            <img src="src/img/card2.jpeg" class="card-img-top" alt="Plano Intermediário"
+                                style="height: 200px; object-fit: cover;">
+                            <span
+                                class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$4,950</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Plano Intermediário</h5>
+                            <p class="card-text text-muted small">Para empresas que querem uma presença sólida e
+                                funcional.</p>
+
+                            <ul class="list-group list-group-flush mb-3 border-0">
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Design:</strong> Visual próprio, responsivo, com identidade visual
+                                    personalizada.
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Dev:</strong> Até páginas com formulário e responsividade (HTML, CSS, JS).
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Social Media:</strong> Estratégia semanal, com 3 posts por semana.
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto">
+                                <div class="mb-3">
+                                    <span
+                                        class="badge bg-light text-dark border rounded-pill me-1 mb-1">Identidade</span>
+                                    <span class="badge bg-light text-dark border rounded-pill me-1 mb-1">Presença
+                                        Digital</span>
+                                    <span class="badge bg-light text-dark border rounded-pill mb-1">Estratégico</span>
+                                </div>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php else : ?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden tour-card">
+                        <div class="position-relative">
+                            <img src="src/img/card2.webp" class="card-img-top" alt="Plano Avançado"
+                                style="height: 200px; object-fit: cover;">
+                            <span
+                                class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$6,420</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Plano Avançado</h5>
+                            <p class="card-text text-muted small">Para empresas que querem se destacar e crescer no
+                                digital.</p>
+
+                            <ul class="list-group list-group-flush mb-3 border-0">
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Design:</strong> UX/UI pensadas do zero, com protótipos e testes de
+                                    usabilidade.
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Dev:</strong> Site completo com backend (login, banco, painel admin).
+                                </li>
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <strong>Social Media:</strong> Planejamento mensal, análises de resultado,
+                                    calendário e execução.
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto">
+                                <div class="mb-3">
+                                    <span class="badge bg-light text-dark border rounded-pill me-1 mb-1">UX
+                                        Premium</span>
+                                    <span
+                                        class="badge bg-light text-dark border rounded-pill me-1 mb-1">Automação</span>
+                                    <span class="badge bg-light text-dark border rounded-pill mb-1">Alta
+                                        Performance</span>
+                                </div>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php else : ?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="tour-card position-relative">
-                    <div class="position-relative">
-                        <img src="src/img/card1.jpg" alt="Beach" class="tour-image">
-                    </div>
-                    <div class="p-3">
-                        <h5 class="fw-bold">Plano Básico</h5>
-                        <p class="small text-muted">Ideal para quem está começando sua vida no mercado</p>
-                        <div class="mb-2">
-                            <span class="location-badge">Site simples de 1 página</span>
-                            <span class="location-badge">Responsivo</span>
-                            <span class="location-badge">Suporte por e-mail</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="./src/pages/planos.php" class="btn btn-primary btn-sm">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="tour-card position-relative">
-                    <div class="position-relative">
-                        <img src="src/img/card2.jpeg" alt="Arctic" class="tour-image">
-                    </div>
-                    <div class="p-3">
-                        <h5 class="fw-bold">Plano Intermediário</h5>
-                        <p class="small text-muted">Para pequenas empresas que desejam ter uma integridade e mantimento no mercado</p>
-                        <div class="mb-2">
-                            <span class="location-badge">Site com até 5 páginas</span>
-                            <span class="location-badge">Design personalizado</span>
-                            <span class="location-badge">Suporte por WhatsApp</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="./src/pages/planos.php" class="btn btn-primary btn-sm">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="tour-card position-relative">
-                    <div class="position-relative">
-                        <img src="src/img/card2.webp" alt="Sahara" class="tour-image">
-                    </div>
-                    <div class="p-3">
-                        <h5 class="fw-bold">Plano Pro</h5>
-                        <p class="small text-muted">Para empresas que precisam de mais recursos e querem ainda mais informatização no seu negócio</p>
-                        <div class="mb-2">
-                            <span class="location-badge">Site completo com blog</span>
-                            <span class="location-badge">SEO e Analytics</span>
-                            <span class="location-badge">Hospedagem e domínio</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="./src/pages/planos.php" class="btn btn-primary btn-sm">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="tour-card position-relative">
-                    <div class="position-relative">
-                        <img src="src/img/card2.webp" alt="Sahara" class="tour-image">
-                    </div>
-                    <div class="p-3">
-                        <h5 class="fw-bold">Plano Personalizado</h5>
-                        <p class="small text-muted">Crie seu site com a sua própria perspectiva e personalidade</p>
-                        <div class="mb-2">
-                            <span class="location-badge">Versão em inglês/espanhol (tradução + layout)</span>
-                            <span class="location-badge">Design de ícones e logotipo simples </span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="./src/pages/planos.php" class="btn btn-primary btn-sm">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    </section>
+    <!-- ======== Planos-section end ======== -->
+    <a href="https://wa.me/5511974557734" target="_blank" class="position-fixed bottom-0 end-0 m-3 whatsapp"
+        style="z-index: 22222;">
+        <img src="src/img/logo/whatsapp.png" alt="WhatsApp" class="img-fluid rounded-circle shadow whatsapp-hover"
+            style="width: clamp(60px, 10vw, 70px); height: auto;">
+    </a>
 
     <!-- Call To Action Section -->
     <!-- <section class="section-cta cta">
@@ -338,127 +417,147 @@ require_once 'src/database/auth.php';
     </div>
 
 
-    <!-- Header -->
-    <div class="header-projetos">
-        <h1>Nossos Projetos</h1>
-        <p class="lead text-secondary">Conheça outros projetos nossos</p>
-    </div>
-
-    <!-- Projects Section -->
-    <div class="container pb-5">
-        <div class="row g-4">
-
-            <!-- Project 1 -->
-            <div class="col-md-6">
-                <div class="project-card p-4 h-100">
-                    <h5 class="fw-bold">Quântun</h5>
-                    <p class="text-muted">Site de  computação quantica</p>
-                    <p class="small">
-                        Site desenvolvido para mostrar sobre o estudo e a história da computação quantica 
-                    </p>
-                    <small>Quântun<br>14/06/2023 - 10/11/2023</small>
-                </div>
+    <section class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h6 class="text-muted text-uppercase">PORTFÓLIO</h6>
+                <h2 class="fw-bold">Nossos <span class="text-info">Projetos</span></h2>
+                <p class="text-muted">Conheça alguns dos nossos trabalhos mais recentes.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-6 col-md-6 mb-4" id="">
+                <a href="#" class="text-decoration-none">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <img src="src/img/projetos/projeto1.png" class="card-img-top"
+                            alt="Website de Computação Quântica">
+                        <div class="card-body text-center">
+                            <span class="badge bg-info mb-2">Educação</span>
+                            <h5 class="card-title text-black">Quatun</h5>
+                            <p style="text-align: justify;">Quantun é uma empresa dedicada a evolução intelectual dos
+                                seus usuários,
+                                divulgando
+                                conhecimentos sobre a computação quântica e comercializando oportunidades de ter mais
+                                tempo com automações</p>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <!-- Project 1 Image + Modal Trigger -->
-            <div class="col-md-6">
-                <div class="image-container" data-bs-toggle="modal" data-bs-target="#videoModal1">
-                    <img src="src/img/projetos/projeto1.jpeg" class="project-img" alt="Project 1">
-                    <div class="play-button">
-                        <i class='bxr  bxs-play' style='color:#ffffff'></i>
+            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <img src="src/img/projetos/projeto2.jpeg" class=" card-img-top" alt="Website de Jogos">
+                        <div class="card-body text-center">
+                            <span class="badge bg-success mb-2">Entretenimento</span>
+                            <h5 class="card-title text-black">PlayOn</h5>
+                            <p style="text-align: justify;">PlayOn é uma instituição voltada para o desenvolvimento de
+                                jogos
+                                indies,
+                                detentora de 3
+                                jogos autorais em sua página, foi o produto final de uma apresentação de projeto final.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <img src="src/img/projetos/projeto3.png" class="card-img-top" alt="E-commerce de Roupas">
+                        <div class="card-body text-center">
+                            <span class="badge mb-2" style="background-color: #00bcd4;">Cuidado Pessoal</span>
+
+                            <h5 class="card-title text-black">Site Institucional</h5>
+                            <p style="text-align: justify;">Site institucional criado com o objetivo de apresentar as
+                                terapias da nossa cliente
+                                Alexandra Sarandi, detém painel de controle, serviços fornecidos e nossa curadoria em
+                                redes
+                                suas
+                                sociais!
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Coluna Sobre -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4">
+                        <img src="src/img/logo/logo.png" style="width: 50%;" alt="Logo Aurora Ability"
+                            class="img-fluid">
+                    </h5>
+                    <p class="mb-3">Transformando o mundo digital em um espaço mais acessível e acolhedor para todos.
+                    </p>
+                    <div class="d-flex gap-3">
+
+                        <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="col-md-6 order-md-2">
-                <div class="project-card p-4 h-100">
-                    <h5 class="fw-bold">Play On</h5>
-                    <p class="text-muted">Site de jogos</p>
-                    <p class="small">
-                       Site voltado para venda de jogos incriveis para sua diversão
-                    </p>
-                    <small>Play on<br>27/02/2024 - 25/10/2024</small>
+                <!-- Coluna Links Rápidos -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Serviços</a></li>
+                        <li class="mb-2"><a href="#planos" class="text-white text-decoration-none">Planos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Sobre Nós</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Serviços -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Nossos Serviços</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Sites Responsivos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Lojas Virtuais</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Otimização SEO</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aplicativos Mobile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Contato -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4">Contato</h5>
+                    <ul class="list-unstyled">
+
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="bi bi-telephone-fill me-2"></i>
+                            <span>(11) 97455-7734</span>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="bi bi-envelope-fill me-2"></i>
+                            <span>contato@auroraability.com</span>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="bi bi-clock-fill me-2"></i>
+                            <span>Seg - Sex: 9h - 18h</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Project 2 Image + Modal Trigger -->
-            <div class="col-md-6 order-md-1">
-                <div class="image-container" data-bs-toggle="modal" data-bs-target="#videoModal2">
-                    <img src="src/img/projetos/projeto2.jpeg" class="project-img" alt="Project 2">
-                    <div class="play-button">
-                        <i class='bxr  bxs-play' style='color:#ffffff'></i>
-                    </div>
+            <hr class="my-4">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Aurora Ability IT. Todos os direitos reservados.</p>
                 </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Modal 1 -->
-    <div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <iframe class="modal-video" src="./src/video/2025-08-18-08-43-07.mp4" title="Video 1"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 2 -->
-    <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <iframe class="modal-video" src="./src/video/2025-08-18-08-46-09.mp4" title="Video 2"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal Projeto 1 -->
-    <div class="modal fade" id="modalProjeto1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-white">Website Computação Quântica</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body p-0">
-                    <video id="videoProjeto1" controls autoplay muted loop style="width: 100%; border-radius: 0 0 8px 8px;">
-                        <source src="src/video/quantica.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeo em HTML5.
-                    </video>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Desenvolvido com <i class="bi bi-heart-fill text-danger"></i> e foco na
+                        acessibilidade digital</p>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Modal Projeto 2 -->
-    <div class="modal fade" id="modalProjeto2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-white">Website de Jogos</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body p-0">
-                    <video id="videoProjeto2" controls autoplay muted loop style="width: 100%; border-radius: 0 0 8px 8px;">
-                        <source src="src/video/jogos.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeo em HTML5.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2025 Aurora Ability IT. Todos os direitos reservados.</p>
-        <p>Desenvolvido com foco em acessibilidade digital.</p>
     </footer>
 
     <!-- JSs -->
@@ -471,7 +570,12 @@ require_once 'src/database/auth.php';
 
 </html>
 
+
 <!-- JSs -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 <!-- Bootstrap JS (opcional, mas deixado caso queira usar dropdowns, etc) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="src/js/index.js"></script>

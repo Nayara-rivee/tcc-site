@@ -45,14 +45,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<!-- Formulário HTML -->
-<h2>Redefinir Senha</h2>
-<form method="POST">
-    <label>Nova senha:</label><br>
-    <input type="password" name="senha" required><br><br>
-    
-    <label>Confirmar senha:</label><br>
-    <input type="password" name="confirmar" required><br><br>
-    
-    <button type="submit">Redefinir Senha</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="../css/css-pages/login.css">
+</head>
+
+<body>
+    <!-- Formulário -->
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card py-3 px-2">
+                    <p class="text-center mb-3 mt-2">Redefinir Senha</p>
+
+                    <form method="post" class="myform">
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Nova senha" name="senha" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Confirmar senha" name="senha" required>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-block btn-primary btn-lg">
+                                <small><i class="far fa-user pr-2"></i>Redefinir Senha</small>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

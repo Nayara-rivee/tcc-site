@@ -70,8 +70,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2>Esqueci minha senha</h2>
-<form method="POST">
-    <input type="email" name="email" placeholder="Seu e-mail" required>
-    <button type="submit">Enviar link de redefinição</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="../css/css-pages/login.css">
+</head>
+
+<body>
+    <!-- Formulário -->
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card py-3 px-2">
+                    <p class="text-center mb-3 mt-2">Redefinir Senha</p>
+
+                    <form method="post" class="myform">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-block btn-primary btn-lg">
+                                <small>Enviar link de redefinição</small>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

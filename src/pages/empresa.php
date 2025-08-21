@@ -52,10 +52,6 @@ require_once '../database/auth.php';
                                         <a class="page-scroll" href="empresa.php">Serviços</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="planos.php">Planos</a>
-                                    </li>
-
-                                    <li class="nav-item">
                                         <a class="page-scroll" href="empresa.php">Redes</a>
                                     </li>
 
