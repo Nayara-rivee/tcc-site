@@ -845,9 +845,9 @@
     
         
 /*--------------------------------------------------------------
-# Chefs Section
+# membros Section
 --------------------------------------------------------------*/
-.chefs {
+.membros {
   /* Custom properties */
   --card-radius: 14px;
   --photo-radius: 18px;
@@ -858,14 +858,14 @@
   --accent-tint: color-mix(in srgb, var(--accent-color), white 85%);
 }
 
-.chefs .featured-chef .chef-photo {
+.membros .featured-membro .membro-photo {
   position: relative;
   border-radius: var(--photo-radius);
   overflow: hidden;
   box-shadow: 0 16px 40px var(--shadow-color);
 }
 
-.chefs .featured-chef .chef-photo img {
+.membros .featured-membro .membro-photo img {
   display: block;
   width: 100%;
   height: auto;
@@ -874,17 +874,17 @@
   transition: transform 0.3s ease;
 }
 
-.chefs .featured-chef .chef-photo:hover img {
+.membros .featured-membro .membro-photo:hover img {
   transform: scale(1.05);
 }
 
-.chefs .featured-chef .chef-photo .badge-overlay {
+.membros .featured-membro .membro-photo .badge-overlay {
   position: absolute;
   top: 14px;
   left: 14px;
 }
 
-.chefs .featured-chef .chef-photo .badge-overlay .pill {
+.membros .featured-membro .membro-photo .badge-overlay .pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -896,11 +896,11 @@
   border: 1px solid var(--accent-soft);
 }
 
-.chefs .featured-chef .chef-photo .badge-overlay .pill i {
+.membros .featured-membro .membro-photo .badge-overlay .pill i {
   color: var(--accent-color);
 }
 
-.chefs .featured-chef .chef-content .topline {
+.membros .featured-membro .membro-content .topline {
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 12px;
@@ -909,21 +909,21 @@
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
-.chefs .featured-chef .chef-content .name {
+.membros .featured-membro .membro-content .name {
   margin: 0 0 6px 0;
 }
 
-.chefs .featured-chef .chef-content .role {
+.membros .featured-membro .membro-content .role {
   margin: 0;
   color: var(--muted-text);
   font-weight: 500;
 }
 
-.chefs .featured-chef .chef-content .bio {
+.membros .featured-membro .membro-content .bio {
   max-width: 56ch;
 }
 
-.chefs .featured-chef .chef-content .awards .award-badge {
+.membros .featured-membro .membro-content .awards .award-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -935,17 +935,17 @@
   border: 1px solid var(--accent-soft);
 }
 
-.chefs .featured-chef .chef-content .awards .award-badge i {
+.membros .featured-membro .membro-content .awards .award-badge i {
   color: var(--accent-color);
 }
 
-.chefs .featured-chef .chef-content .signature img {
+.membros .featured-membro .membro-content .signature img {
   max-width: 150px;
   opacity: 0.85;
   filter: drop-shadow(0 2px 6px var(--shadow-color));
 }
 
-.chefs .team-grid .chef-card {
+.membros .team-grid .membro-card {
   background: var(--surface-color);
   border: 1px solid var(--soft-border);
   border-radius: var(--card-radius);
@@ -953,12 +953,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.chefs .team-grid .chef-card:hover {
+.membros .team-grid .membro-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 44px color-mix(in srgb, var(--default-color), transparent 88%);
 }
 
-.chefs .team-grid .chef-card .image-wrapper {
+.membros .team-grid .membro-card .image-wrapper {
   position: relative;
   overflow: hidden;
   border-top-left-radius: var(--card-radius);
@@ -966,7 +966,7 @@
   background: color-mix(in srgb, var(--accent-color), transparent 94%);
 }
 
-.chefs .team-grid .chef-card .image-wrapper img {
+.membros .team-grid .membro-card .image-wrapper img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -974,7 +974,7 @@
   transition: transform 0.3s ease;
 }
 
-.chefs .team-grid .chef-card .image-wrapper .social {
+.membros .team-grid .membro-card .image-wrapper .social {
   position: absolute;
   right: 12px;
   bottom: 12px;
@@ -985,7 +985,7 @@
   transition: all 0.3s ease;
 }
 
-.chefs .team-grid .chef-card .image-wrapper .social a {
+.membros .team-grid .membro-card .image-wrapper .social a {
   width: 36px;
   height: 36px;
   display: grid;
@@ -997,38 +997,38 @@
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.chefs .team-grid .chef-card .image-wrapper .social a:hover {
+.membros .team-grid .membro-card .image-wrapper .social a:hover {
   background: var(--accent-color);
   color: var(--contrast-color);
   transform: translateY(-2px);
 }
 
-.chefs .team-grid .chef-card:hover .image-wrapper img {
+.membros .team-grid .membro-card:hover .image-wrapper img {
   transform: scale(1.06);
 }
 
-.chefs .team-grid .chef-card:hover .image-wrapper .social {
+.membros .team-grid .membro-card:hover .image-wrapper .social {
   opacity: 1;
   transform: translateY(0);
 }
 
-.chefs .team-grid .chef-card .content .name {
+.membros .team-grid .membro-card .content .name {
   margin: 0;
 }
 
-.chefs .team-grid .chef-card .content .role {
+.membros .team-grid .membro-card .content .role {
   color: var(--muted-text);
   font-size: 14px;
   margin-bottom: 8px;
 }
 
-.chefs .team-grid .chef-card .content .excerpt {
+.membros .team-grid .membro-card .content .excerpt {
   font-size: 14px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 12px;
 }
 
-.chefs .team-grid .chef-card .content .mini-badge {
+.membros .team-grid .membro-card .content .mini-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1040,20 +1040,20 @@
   border: 1px solid var(--accent-soft);
 }
 
-.chefs .team-grid .chef-card .content .mini-badge i {
+.membros .team-grid .membro-card .content .mini-badge i {
   color: var(--accent-color);
 }
 
-.chefs .swiper-wrapper {
+.membros .swiper-wrapper {
   height: auto !important;
 }
 
 @media (max-width: 768px) {
-  .chefs .featured-chef .chef-content .bio {
+  .membros .featured-membro .membro-content .bio {
     max-width: 100%;
   }
 
-  .chefs .team-grid .chef-card .image-wrapper .social a {
+  .membros .team-grid .membro-card .image-wrapper .social a {
     width: 34px;
     height: 34px;
   }

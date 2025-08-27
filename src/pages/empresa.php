@@ -250,8 +250,8 @@ require_once '../database/auth.php';
 
 
 
-    <!-- Chefs Section -->
-    <section id="chefs" class="chefs section">
+    <!-- membros Section -->
+    <section id="membros" class="membros section">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -261,15 +261,15 @@ require_once '../database/auth.php';
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="featured-chef row align-items-center g-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="featured-membro row align-items-center g-4" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-lg-5">
-                    <figure class="chef-photo m-0">
-                        <img src="../img/equipe/grupo/grupo.jpeg" alt="Executive chef portrait" class="img-fluid">
+                    <figure class="membro-photo m-0">
+                        <img src="../img/equipe/grupo/grupo.jpeg" alt="Executive membro portrait" class="img-fluid">
                     </figure>
                 </div>
 
                 <div class="col-lg-7">
-                    <div class="chef-content">
+                    <div class="membro-content">
                         <h3 class="name">Aurora Ability</h3>
                         <p class="role mb-3">Quem somos?</p>
                         <p class="bio mb-4">Somos uma equipe dedicada, unindo criatividade e conhecimento técnico para desenvolver projetos que fazem a diferença. Acreditamos no poder da tecnologia como ferramenta de transformação, e trabalhamos juntos para entregar resultados que superam expectativas</p>
@@ -280,9 +280,9 @@ require_once '../database/auth.php';
             <div class="row g-4 team-grid mt-2">
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/alana.jpeg" alt="Sous chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/alana.jpeg" alt="Sous membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -293,12 +293,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Analista de software</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/aline.jpeg" alt="Pastry chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/aline.jpeg" alt="Pastry membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -309,12 +309,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Gestão de social mídia</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/izabela.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/izabela.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -325,12 +325,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Design</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/maria-eduarda.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/maria-eduarda.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -341,12 +341,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Documentadora</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/nayara.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/nayara.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -357,12 +357,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Programadora</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/nickolas.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/nickolas.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -373,12 +373,12 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Programador</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="chef-card h-100">
+                    <article class="membro-card h-100">
                         <div class="image-wrapper">
-                            <img src="../img/equipe/bruno.jpeg" alt="Grill chef portrait" class="img-fluid" loading="lazy">
+                            <img src="../img/equipe/bruno.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
                             <ul class="social list-unstyled m-0">
                                 <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
                                 <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
@@ -389,7 +389,7 @@ require_once '../database/auth.php';
                             <p class="role mb-2">Design</p>
                         </div>
                     </article>
-                </div><!-- End Chef Card -->
+                </div><!-- End membro Card -->
 
 
 
@@ -397,7 +397,7 @@ require_once '../database/auth.php';
 
         </div>
 
-    </section><!-- /Chefs Section -->
+    </section><!-- /membros Section -->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
