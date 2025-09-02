@@ -15,6 +15,14 @@
 
 <body>
 
+    <!-- libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <!-- end libras -->
 
     <section class="py-4 py-md-5 py-xl-9">
         <div class="container">
@@ -26,7 +34,7 @@
                     </a>
 
                     <div class="border overflow-hidden">
-                        <form action="captura.php" method="post" name="form1" id="name">
+                        <form action="../database/captura.php" method="post" name="form1" id="name">
                             <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                                 <div class="col-12">
                                     <label for="fullname" class="form-label">Nome Completo <span class="text-danger">*</span></label>
@@ -107,6 +115,16 @@
             </div>
         </div>
     </section>
+
+<!-- scripts -->
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+<!-- end scripts -->
+
 </body>
 
 </html>

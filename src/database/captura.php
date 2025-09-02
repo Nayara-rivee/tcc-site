@@ -58,14 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
 
         // Redireciona com sucesso
-        header("Location: faleconosco.php?status=sucesso");
+        header("Location: ../../pages/faleconosco.php?status=sucesso");
         exit;
     } catch (Exception $e) {
         // Redireciona com erro e mensagem
-        header("Location: faleconosco.php?status=erro&msg=" . urlencode($mail->ErrorInfo));
+        header("Location: ../../pages/faleconosco.php?status=erro&msg=" . urlencode($mail->ErrorInfo));
         exit;
     }
 } else {
-    header("Location: faleconosco.php");
+    header("Location: ../../pages/faleconosco.php");
     exit;
 }

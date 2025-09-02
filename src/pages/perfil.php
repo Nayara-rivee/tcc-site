@@ -36,42 +36,53 @@ if ($nivel == 1) {
 
 </head>
 
-<!-- Modal para Agendar Consulta -->
-<div class="modal fade" id="modalAgendarServico" tabindex="-1" aria-labelledby="modalAgendarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content rounded-4">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalAgendarLabel"><i class="fas fa-plus me-2"></i>Agendar Servico</h5>
 
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-                <form id="formAgendamento" method="post" action="../database/criarServico.php">
-                    <div class="mb-3">
-                        <label for="tipoServico" class="form-label">Tipo de Servico</label>
-                        <select class="form-select" name="tipoServico" id="tipoServico" required>
-                            <option value="">Selecione uma opção</option>
-                            <option value="Plano Básico">Plano Básico</option>
-                            <option value="Plano Intermediário">Plano Intermediário</option>
-                            <option value="PlanoAvancado">Plano Avançado</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dataTermino" class="form-label">Data Término</label>
-                        <input type="datetime-local" class="form-control" name="dataTermino" id="dataTermino" required>
-                    </div>
+<body>
 
-                    <input type="hidden" name="usuario_id" id="usuarioSelecionadoId">
-                    <button type="submit" class="btn btn-vinho w-100">
-                        <i class="fas fa-check me-1"></i> Confirmar Agendamento
-                    </button>
-                </form>
+    <!-- libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <!-- end libras -->
+
+    <!-- Modal para Agendar Consulta -->
+    <div class="modal fade" id="modalAgendarServico" tabindex="-1" aria-labelledby="modalAgendarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAgendarLabel"><i class="fas fa-plus me-2"></i>Agendar Servico</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgendamento" method="post" action="../database/criarServico.php">
+                        <div class="mb-3">
+                            <label for="tipoServico" class="form-label">Tipo de Servico</label>
+                            <select class="form-select" name="tipoServico" id="tipoServico" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="Plano Básico">Plano Básico</option>
+                                <option value="Plano Intermediário">Plano Intermediário</option>
+                                <option value="PlanoAvancado">Plano Avançado</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataTermino" class="form-label">Data Término</label>
+                            <input type="datetime-local" class="form-control" name="dataTermino" id="dataTermino" required>
+                        </div>
+
+                        <input type="hidden" name="usuario_id" id="usuarioSelecionadoId">
+                        <button type="submit" class="btn btn-vinho w-100">
+                            <i class="fas fa-check me-1"></i> Confirmar Agendamento
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<body>
     <!-- ======== header start ======== -->
     <header class="header">
         <div class="navbar-area">
@@ -98,9 +109,6 @@ if ($nivel == 1) {
                                     <li class="nav-item">
                                         <a class="page-scroll" href="../../index.php">Serviços</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="../pages/planos.php">Planos e Templates</a>
-                                    </li>
 
                                     <li class="nav-item">
                                         <a class="page-scroll" href="../../index.php">Redes</a>
@@ -110,7 +118,7 @@ if ($nivel == 1) {
                                         <a href="../pages/faleconosco.php">Fale conosco</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="../../index.php">Sobre a empresa</a>
+                                        <a href="../pages/empresa.php">Sobre</a>
                                     </li>
 
 
@@ -118,18 +126,25 @@ if ($nivel == 1) {
                                         <!-- Mostra a imagem do usuário logado -->
                                         <div class="d-flex align-items-center flex-column gap-2"
                                             style="position: relative; bottom: 15px; left: 20px;">
-                                            <a href="src/pages/perfil.php" class="perfil">
-                                                <img src="https://icon-library.com/images/generic-user-icon/generic-user-icon-9.jpg"
+                                            <?php
+                                            $fotoPerfil = !empty($_SESSION['usuario']['foto'])
+                                                ? '../uploads/' . $_SESSION['usuario']['foto']
+                                                : '../img/usuarioGenerico.jpg';
+                                            ?>
+                                            <a href="../pages/perfil.php" class="perfil">
+                                                <img src="<?= $fotoPerfil ?>"
                                                     class="border" alt="Usuário"
-                                                    style="width: 60px; height: 60px; border-radius: 50%;">
+                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
                                             </a>
-                                            <span class="fw-bold"
-                                                style="color: white;"><?php echo ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?></span>
+                                            <span class="fw-bold" style="color: white;">
+                                                <?= ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?>
+                                            </span>
+
                                         </div>
                                     <?php else: ?>
 
                                         <li class="nav-item-login">
-                                            <a href="src/pages/login.php">Login</a>
+                                            <a href="../pages/login.php">Login</a>
                                         </li>
                                     <?php endif ?>
 
@@ -151,13 +166,13 @@ if ($nivel == 1) {
     <section class="container mb-4" style="margin-top: 15%;">
         <div class="d-flex rounded">
             <!-- Sidebar -->
-            <aside class="bg-primary text-white p-3 vh-100 d-flex flex-column rounded-start" style="width: 240px;">
+            <aside class="nav-menu text-white p-3 vh-100 d-flex flex-column rounded-start" style="width: 240px;">
                 <div class="d-flex align-items-center mb-4">
                     <img src="../img/favicon/favicon.png" alt="Logo Aurora" width="30" class="me-2">
                     <span class="fw-bold fs-5">Aurora</span>
                 </div>
                 <nav class="nav flex-column">
-                    <a class="nav-link text-white active bg-opacity-25 bg-white rounded mb-2" href="#">🏠 Inicial</a>
+                    <a class="nav-link text-white active bg-opacity-25 bg-white rounded mb-2" href="../../index.php">🏠 Inicial</a>
                     <a class="nav-link text-white bg-danger bg-opacity-25  rounded mb-2"
                         href="../database/logout.php">📤 Sair</a>
                 </nav>
@@ -165,11 +180,19 @@ if ($nivel == 1) {
 
             <!-- Main Content -->
             <main class="flex-grow-1 bg-white p-4 rounded-end">
+                <div class="mb-4">
+                    <h2>Foto de Perfil</h2>
+                    <form action="../database/uploadFoto.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="foto" accept="image/*" class="form-control mb-2" required>
+                        <button type="submit" class="btn btn-primary">Enviar Foto</button>
+                    </form>
+                </div>
+
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h1 class="fs-3 fw-semibold">Usuarios</h1>
                     <div class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search the users">
-                        <button class="btn btn-primary">Procurar</button>
+                        <button class="btn">Procurar</button>
                         <div class=" text-center ">
                             <button class="btn btn-vinho ms-1 btn-secondary d-none" id="btnAgendarServico"
                                 style="width: 150px;" onclick="agendarServico();">
@@ -229,10 +252,10 @@ if ($nivel == 1) {
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
-        </script>
+    </script>
     <script>
         document.querySelectorAll('.btn-usuario').forEach(btn => {
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', function() {
                 const btnAgendarServico = document.getElementById('btnAgendarServico');
                 btnAgendarServico.classList.remove('d-none')
                 const usuarios = document.querySelector('.usuarios');
@@ -300,6 +323,13 @@ if ($nivel == 1) {
             modal.show();
         }
     </script>
+
+    <!-- scripts libras-->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- end scripts -->
 </body>
 
 </html>

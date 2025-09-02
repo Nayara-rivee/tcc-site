@@ -1,6 +1,24 @@
 body {
-    background-image: url(../../img/fundoPerfil.png);
+    /* background-image: url(../../img/fundoPerfil.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
+
+  background: linear-gradient(to right, #0ab8a1, #287697);
+}
+
+.nav-menu{
+    background: #0ab8a1cb;
+}
+
+.btn{
+    background: #62cabc;
+    color: aliceblue;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover{
+    background: #62cabcb6;
+    color: #097a6b;
+    transition: 0.3s ease-in-out;
 }

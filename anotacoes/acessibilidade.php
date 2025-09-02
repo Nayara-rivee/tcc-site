@@ -18,28 +18,30 @@
     <link rel="stylesheet" href="../css-globais/footer.css" />
 
     <!-- CSS DA PÁGINA -->
-    <link rel="stylesheet" href="../css/acessibilidade.css" />
+    <link rel="stylesheet" href="acessibilidade.css" />
 
     <!-- CSS RESPONSIVO -->
     <link rel="stylesheet" href="../css/responsivo.css" />
 
     <!-- JS ACESSIBILIDADE -->
-    <script src="../js/acessibilidade.js" defer></script>
+    <script src="acessibilidade.js" defer></script>
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">Aurora Ability IT</div>
-        <ul class="menu">
-            <li><a href="index.php">Início</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="planos.php">Planos</a></li>
-            <li><a href="acessibilidade.php">Acessibilidade</a></li>
-            <li><a href="contato.php">Contato</a></li>
-        </ul>
-    </nav>
+    <!-- Botão flutuante -->
+    <button id="acessibilidade-toggle" title="Acessibilidade">♿</button>
+
+    <!-- Barra de acessibilidade retrátil -->
+    <div id="acessibilidade-bar">
+        <button id="aumentar-fonte">Aumentar Fonte</button>
+        <button id="diminuir-fonte">Diminuir Fonte</button>
+        <button id="resetar-fonte">Resetar Fonte</button>
+        <button id="contraste">Alto Contraste</button>
+        <button id="espacamento">Espaçamento</button>
+    </div>
+
 
     <main class="acessibilidade">
         <section class="intro">

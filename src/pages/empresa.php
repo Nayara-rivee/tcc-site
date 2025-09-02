@@ -19,6 +19,16 @@ require_once '../database/auth.php';
 </head>
 
 <body>
+
+    <!-- libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <!-- end libras -->
+
     <header class="header">
         <div class="navbar-area">
             <div class="container">
@@ -62,9 +72,32 @@ require_once '../database/auth.php';
                                         <a class="page-scroll" href="empresa.php">Sobre</a>
                                     </li>
 
-                                    <li class="nav-item-login">
-                                        <a class="page-scroll" href="login.php">Login</a>
-                                    </li>
+                                    <?php if (estaLogado()): ?>
+                                        <!-- Mostra a imagem do usuário logado -->
+                                        <div class="d-flex align-items-center flex-column gap-2"
+                                            style="position: relative; bottom: 15px; left: 20px;">
+                                            <?php
+                                            $fotoPerfil = !empty($_SESSION['usuario']['foto'])
+                                                ? '../uploads/' . $_SESSION['usuario']['foto']
+                                                : '../img/usuarioGenerico.jpg';
+                                            ?>
+                                            <a href="../pages/perfil.php" class="perfil">
+                                                <img src="<?= $fotoPerfil ?>"
+                                                    class="border" alt="Usuário"
+                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                            </a>
+                                            <span class="fw-bold" style="color: white;">
+                                                <?= ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?>
+                                            </span>
+
+                                        </div>
+                                    <?php else: ?>
+
+                                        <li class="nav-item-login">
+                                            <a href="../pages/login.php">Login</a>
+                                        </li>
+                                    <?php endif ?>
+
                                 </ul>
                             </div>
                             <!-- navbar collapse -->
@@ -399,6 +432,10 @@ require_once '../database/auth.php';
 
     </section><!-- /membros Section -->
 
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 

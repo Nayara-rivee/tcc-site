@@ -100,9 +100,30 @@ require_once 'src/database/auth.php';
                                         <a href="#empresa">Sobre</a>
                                     </li>
 
-                                    <li class="nav-item-login">
-                                        <a href="src/pages/login.php">Login</a>
-                                    </li>
+                                    <?php if (estaLogado()): ?>
+                                        <?php
+                                        $fotoPerfil = !empty($_SESSION['usuario']['foto'])
+                                            ? 'src/uploads/' . $_SESSION['usuario']['foto'] // caminho correto
+                                            : 'src/img/usuarioGenerico.jpg';
+                                        ?>
+                                        <div class="d-flex align-items-center flex-column gap-2"
+                                            style="position: relative; bottom: 15px; left: 20px;">
+                                            <a href="src/pages/perfil.php" class="perfil">
+                                                <img src="<?= $fotoPerfil ?>"
+                                                    class="border" alt="Usuário"
+                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                            </a>
+                                            <span class="fw-bold" style="color: white;">
+                                                <?= ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?>
+                                            </span>
+                                        </div>
+                                    <?php else: ?>
+
+                                        <li class="nav-item-login">
+                                            <a href="src/pages/login.php">Login</a>
+                                        </li>
+                                    <?php endif ?>
+
                                 </ul>
                             </div>
                             <!-- navbar collapse -->
