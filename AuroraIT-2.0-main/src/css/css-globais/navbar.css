@@ -1,0 +1,134 @@
+/* navbar */
+  .navbar {
+    box-shadow: 0px 20px 20px rgba(36, 36, 36, 0.5);
+    background: #287697;
+  }
+  
+  .navbar-collapse .navbar-nav .nav-item a {
+    position: relative;
+    right: -50px;
+    font-size: 1.2em;
+    margin: 30px;
+  }
+  .navbar-collapse .navbar-nav .nav-item a:hover {
+    transition: 0.5s;
+    color: #d3d3e4;
+  }
+  .navbar-collapse .navbar-nav .nav-item a{
+    color: #fff;
+  }
+  
+  .dropdown-menu{
+    width: 300px;
+
+  }
+
+  .navbar-collapse .navbar-nav .dropdown-menu .dropdown-item{
+    width: 100px;
+    color: #287697;
+  }
+  /* botão de login */
+  
+  .login {
+    margin: 20px 15px;
+    color: #287697;
+    border:2px #287697 solid;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    background: #eeeeee;
+  }
+  
+  .logout {
+    margin: 20px 15px;
+    color: #287697;
+    border:2px #287697 solid;
+    position: relative;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    background: #eeeeee;
+  }
+
+  .login:hover {
+    transition: 1s;
+    background: none;
+    color: #fff;
+    border:2px #287697 solid;
+  }
+  .logout:hover {
+    transition: 1s;
+    color: #fff;
+    border:2px #287697 solid;
+  }
+  
+  /* mode do background */
+
+  body.light-mode,
+  .introducao.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  /* Tema escuro */
+  body.dark-mode,
+  .introducao.dark-mode {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  .light-mode .botao-criar {
+    background-color: #287697;
+    color: #fff;
+    transition: 1s;
+  }
+  
+  .light-mode .botao-criar:hover {
+    background: none; /* preto no hover */
+    border:3px solid #287697;
+    color: #287697;
+    transition: 1s;
+  }
+  
+  /* Botão no modo escuro */
+  .dark-mode .botao-criar {
+    background: #287697;
+    color: #fff;
+  }
+  
+  .dark-mode .botao-criar:hover {
+    background: none; /* preto no hover */
+    border:3px solid #287697;
+  }
+  
+  .dark-mode .bx-sun {
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+  }
+  .light-mode .bx-moon {
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+  }
+  
+
+  .theme-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .theme-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .theme-icon {
+    font-size: 2rem;
+  }

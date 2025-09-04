@@ -250,13 +250,17 @@ require_once 'src/database/auth.php';
 
                             <ul class="list-group list-group-flush mb-3 border-0">
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Design:</strong> Usamos um template, adaptamos as cores e logo.
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Design:</strong> Uso de
+                                    template, adaptamos as cores e logo.
+                                </li>
+
+                                <li class="list-group-item border-0 ps-0 pb-2 small">
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Dev:</strong> Página
+                                    única com HTML/CSS (landing page).
                                 </li>
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Dev:</strong> Página única com HTML/CSS (landing page).
-                                </li>
-                                <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Social Media:</strong> Criamos o perfil e postamos 1x por semana.
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Social Media:</strong>
+                                    Criamos o perfil e postamos 1x por semana.
                                 </li>
                             </ul>
 
@@ -285,7 +289,8 @@ require_once 'src/database/auth.php';
                 <!-- Card 2 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden tour-card">
-                        <div class="position-relative">
+                        <div class="position-relative featured">
+
                             <img src="src/img/card2.jpeg" class="card-img-top" alt="Plano Intermediário"
                                 style="height: 200px; object-fit: cover;">
                             <span
@@ -298,14 +303,17 @@ require_once 'src/database/auth.php';
 
                             <ul class="list-group list-group-flush mb-3 border-0">
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Design:</strong> Visual próprio, responsivo, com identidade visual
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Design:</strong> Visual
+                                    próprio, responsivo, com identidade visual
                                     personalizada.
                                 </li>
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Dev:</strong> Até páginas com formulário e responsividade (HTML, CSS, JS).
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Dev:</strong> Até
+                                    páginas com formulário e responsividade (HTML, CSS, JS).
                                 </li>
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Social Media:</strong> Estratégia semanal, com 3 posts por semana.
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Social Media:</strong>
+                                    Estratégia semanal, com 3 posts por semana.
                                 </li>
                             </ul>
 
@@ -347,14 +355,17 @@ require_once 'src/database/auth.php';
 
                             <ul class="list-group list-group-flush mb-3 border-0">
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Design:</strong> UX/UI pensadas do zero, com protótipos e testes de
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Design:</strong> UX/UI
+                                    pensadas do zero, com protótipos e testes de
                                     usabilidade.
                                 </li>
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Dev:</strong> Site completo com backend (login, banco, painel admin).
+                                    <i class="bi bi-check-circle text-success me-2"></i><strong>Dev:</strong> Site
+                                    completo com backend (login, banco, painel admin).
                                 </li>
                                 <li class="list-group-item border-0 ps-0 pb-2 small">
-                                    <strong>Social Media:</strong> Planejamento mensal, análises de resultado,
+                                    <i class="bi bi-check-circle text-success me-2"></i> <strong>Social Media:</strong>
+                                    Planejamento mensal, análises de resultado,
                                     calendário e execução.
                                 </li>
                             </ul>
@@ -384,7 +395,8 @@ require_once 'src/database/auth.php';
             </div>
         </div>
     </section>
-    <!-- ======== Planos-section end ======== -->
+    <!-- ======== feature-section end ======== -->
+
     <a href="https://wa.me/5511974557734" target="_blank" class="position-fixed bottom-0 end-0 m-3 whatsapp"
         style="z-index: 22222;">
         <img src="src/img/logo/whatsapp.png" alt="WhatsApp" class="img-fluid rounded-circle shadow whatsapp-hover"
@@ -438,73 +450,120 @@ require_once 'src/database/auth.php';
     </div>
 
 
-    <section class="container py-5">
-        <div class="row text-center mb-5">
-            <div class="col-12">
-                <h6 class="text-muted text-uppercase">PORTFÓLIO</h6>
-                <h2 class="fw-bold">Nossos <span class="text-info">Projetos</span></h2>
-                <p class="text-muted">Conheça alguns dos nossos trabalhos mais recentes.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-xl-4 col-lg-6 col-md-6 mb-4" id="">
-                <a href="#" class="text-decoration-none">
-                    <div class="card project-card h-100 border-0 shadow-sm">
-                        <img src="src/img/projetos/projeto1.png" class="card-img-top"
-                            alt="Website de Computação Quântica">
-                        <div class="card-body text-center">
-                            <span class="badge bg-info mb-2">Educação</span>
-                            <h5 class="card-title text-black">Quatun</h5>
-                            <p style="text-align: justify;">Quantun é uma empresa dedicada a evolução intelectual dos
-                                seus usuários,
-                                divulgando
-                                conhecimentos sobre a computação quântica e comercializando oportunidades de ter mais
-                                tempo com automações</p>
-                        </div>
-                    </div>
-                </a>
+    <section class="portfolio-section py-5">
+        <div class="container portfolio-content">
+            <!-- Header da seção -->
+            <div class="section-header text-center fade-in-up">
+                <h6 class="section-subtitle">PORTFÓLIO</h6>
+                <h2 class="section-title">Nossos <span class="highlight">Projetos</span></h2>
+                <p class="lead text-muted">Conheça alguns dos nossos trabalhos mais recentes e descubra como
+                    transformamos ideias em realidade digital.</p>
             </div>
 
-            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-                <a href="#" class="text-decoration-none">
-                    <div class="card project-card h-100 border-0 shadow-sm">
-                        <img src="src/img/projetos/projeto2.jpeg" class=" card-img-top" alt="Website de Jogos">
-                        <div class="card-body text-center">
-                            <span class="badge bg-success mb-2">Entretenimento</span>
-                            <h5 class="card-title text-black">PlayOn</h5>
-                            <p style="text-align: justify;">PlayOn é uma instituição voltada para o desenvolvimento de
-                                jogos
-                                indies,
-                                detentora de 3
-                                jogos autorais em sua página, foi o produto final de uma apresentação de projeto final.
+            <!-- Grid de projetos -->
+            <div class="row g-4 justify-content-center mb-5">
+                <!-- Projeto 1: Quantun -->
+                <div class="col-lg-4 col-md-6 fade-in-up delay-1">
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="src/img/projetos/Captura de tela 2025-08-19 203736.png" class="project-image"
+                                alt="Quantun - Computação Quântica">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <h5 class="mb-3">Ver Projeto</h5>
+                                    <a href="https://nickolassantoscremasco.github.io/Quantun/" target="_blank"
+                                        class="view-project-btn">
+                                        <i class="bi bi-eye me-2"></i>Visualizar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category category-education">Educação</span>
+                            <h5 class="project-title">Quantun</h5>
+                            <p class="project-description">
+                                Plataforma educacional dedicada à evolução intelectual dos usuários, divulgando
+                                conhecimentos sobre computação quântica e comercializando soluções de automação.
                             </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
 
-            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-                <a href="#" class="text-decoration-none">
-                    <div class="card project-card h-100 border-0 shadow-sm">
-                        <img src="src/img/projetos/projeto3.png" class="card-img-top" alt="E-commerce de Roupas">
-                        <div class="card-body text-center">
-                            <span class="badge mb-2" style="background-color: #00bcd4;">Cuidado Pessoal</span>
-
-                            <h5 class="card-title text-black">Site Institucional</h5>
-                            <p style="text-align: justify;">Site institucional criado com o objetivo de apresentar as
-                                terapias da nossa cliente
-                                Alexandra Sarandi, detém painel de controle, serviços fornecidos e nossa curadoria em
-                                redes
-                                suas
-                                sociais!
+                <!-- Projeto 2: PlayOn -->
+                <div class="col-lg-4 col-md-6 fade-in-up delay-2">
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="src/img/projetos/projeto2.jpeg" class="project-image"
+                                alt="PlayOn - Desenvolvimento de Jogos">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <h5 class="mb-3">Ver Projeto</h5>
+                                    <a href="https://nickolassantoscremasco.github.io/PlayOn/" target="_blank"
+                                        class="view-project-btn">
+                                        <i class="bi bi-eye me-2"></i>Visualizar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category category-entertainment">Entretenimento</span>
+                            <h5 class="project-title">PlayOn</h5>
+                            <p class="project-description">
+                                Instituição voltada para o desenvolvimento de jogos indies, detentora de 3 jogos
+                                autorais. Projeto final apresentado com foco na experiência do usuário.
                             </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Javascript</span>
+
+                            </div>
                         </div>
                     </div>
-                </a>
+                </div>
+
+                <!-- Projeto 3: Site Institucional -->
+                <div class="col-lg-4 col-md-6 fade-in-up delay-3">
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="src/img/projetos/projeto3.png" class="project-image"
+                                alt="Site Institucional - Alexandra Sarandi">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <h5 class="mb-3">Ver Projeto</h5>
+                                    <a href="#" class="view-project-btn">
+                                        <i class="bi bi-eye me-2"></i>Visualizar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category category-health">Cuidado Pessoal</span>
+                            <h5 class="project-title">Site Institucional</h5>
+                            <p class="project-description">
+                                Site institucional desenvolvido para apresentar as terapias da cliente Alexandra
+                                Sarandi, com painel de controle, serviços e curadoria em redes sociais.
+                            </p>
+                            <div class="tech-stack">
+
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
+
 
     <footer class="bg-dark text-white pt-5 pb-3">
         <div class="container">

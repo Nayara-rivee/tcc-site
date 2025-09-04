@@ -16,6 +16,11 @@ require_once '../database/auth.php';
     <link rel="stylesheet" href="../css/css-pages/empresa.css">
     <link rel="stylesheet" href="../css/css-globais/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
@@ -283,154 +288,236 @@ require_once '../database/auth.php';
 
 
 
-    <!-- membros Section -->
-    <section id="membros" class="membros section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <span class="description-title">Empresa</span>
-            <h2>Nossa equipe</h2>
-        </div><!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="swiper">
+        <h2>Nossa Equipe</h2>
 
-            <div class="featured-membro row align-items-center g-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="col-lg-5">
-                    <figure class="membro-photo m-0">
-                        <img src="../img/equipe/grupo/grupo.jpeg" alt="Executive membro portrait" class="img-fluid">
-                    </figure>
-                </div>
+        <div class="swiper-wrapper">
 
-                <div class="col-lg-7">
-                    <div class="membro-content">
-                        <h3 class="name">Aurora Ability</h3>
-                        <p class="role mb-3">Quem somos?</p>
-                        <p class="bio mb-4">Somos uma equipe dedicada, unindo criatividade e conhecimento técnico para desenvolver projetos que fazem a diferença. Acreditamos no poder da tecnologia como ferramenta de transformação, e trabalhamos juntos para entregar resultados que superam expectativas</p>
+            <!-- Integrante 1 -->
+            <div class="swiper-slide">
+                <img src="../img/equipe/alana.jpeg" alt="Integrante 1">
+                <div class="overlay">
+                    <h3>Integrante 1</h3>
+                    <div class="skill"><span>HTML</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill"><span>CSS</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill"><span>JavaScript</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="row g-4 team-grid mt-2">
+            <!-- Integrante 2 -->
+            <div class="swiper-slide">
+                <img src="src/img/equipe/aline.jpeg" alt="Integrante 2">
+                <div class="overlay">
+                    <h3>Integrante 2</h3>
+                    <div class="skill"><span>React</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill"><span>Node.js</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill"><span>SQL</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/alana.jpeg" alt="Sous membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+            <!-- Integrante 3 -->
+            <div class="swiper-slide">
+                <img src="src/img/equipe/bruno.jpeg" alt="Integrante 3">
+                <div class="overlay">
+                    <h3>Integrante 3</h3>
+                    <div class="skill"><span>UI/UX</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Allana</h4>
-                            <p class="role mb-2">Analista de software</p>
+                    </div>
+                    <div class="skill"><span>Figma</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
                         </div>
-                    </article>
-                </div><!-- End membro Card -->
+                    </div>
+                    <div class="skill"><span>Design</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/aline.jpeg" alt="Pastry membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+            <!-- Integrante 4 -->
+            <div class="swiper-slide">
+                <img src="src/img/equipe/nayara.jpeg" alt="Integrante 4">
+                <div class="overlay">
+                    <h3>Integrante 4</h3>
+                    <div class="skill"><span>PHP</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Aline Hosen</h4>
-                            <p class="role mb-2">Gestão de social mídia</p>
+                    </div>
+                    <div class="skill"><span>Laravel</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
                         </div>
-                    </article>
-                </div><!-- End membro Card -->
+                    </div>
+                    <div class="skill"><span>MySQL</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/izabela.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+            <!-- Integrante 5 -->
+            <div class="swiper-slide">
+                <img src="src/img/equipe/izabela.jpeg" alt="Integrante 5">
+                <div class="overlay">
+                    <h3>Integrante 5</h3>
+                    <div class="skill"><span>Marketing</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Iza Tinico</h4>
-                            <p class="role mb-2">Design</p>
+                    </div>
+                    <div class="skill"><span>SEO</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
                         </div>
-                    </article>
-                </div><!-- End membro Card -->
+                    </div>
+                    <div class="skill"><span>Social Media</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/maria-eduarda.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+            <!-- Integrante 6 -->
+            <div class="swiper-slide">
+                <img src="src/img/equipe/nickolas.jpeg" alt="Integrante 6">
+                <div class="overlay">
+                    <h3>Integrante 6</h3>
+                    <div class="skill"><span>DevOps</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Maria Eduarda Simões</h4>
-                            <p class="role mb-2">Documentadora</p>
+                    </div>
+                    <div class="skill"><span>AWS</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
                         </div>
-                    </article>
-                </div><!-- End membro Card -->
+                    </div>
+                    <div class="skill"><span>Docker</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/nayara.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+            <!-- Integrante 7 -->
+            <div class="swiper-slide">
+                <img src="../img/equipe/maria-eduarda.jpeg" alt="Integrante 7">
+                <div class="overlay">
+                    <h3>Integrante 7</h3>
+                    <div class="skill"><span>Python</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Nayara</h4>
-                            <p class="role mb-2">Programadora</p>
+                    </div>
+                    <div class="skill"><span>Data Science</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
                         </div>
-                    </article>
-                </div><!-- End membro Card -->
-
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/nickolas.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
+                    </div>
+                    <div class="skill"><span>IA</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%"></div>
                         </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Nickolas</h4>
-                            <p class="role mb-2">Programador</p>
-                        </div>
-                    </article>
-                </div><!-- End membro Card -->
-
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <article class="membro-card h-100">
-                        <div class="image-wrapper">
-                            <img src="../img/equipe/bruno.jpeg" alt="Grill membro portrait" class="img-fluid" loading="lazy">
-                            <ul class="social list-unstyled m-0">
-                                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
-                                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="content p-3">
-                            <h4 class="name mb-1">Bruno Rufino</h4>
-                            <p class="role mb-2">Design</p>
-                        </div>
-                    </article>
-                </div><!-- End membro Card -->
-
-
-
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-    </section><!-- /membros Section -->
+        <!-- Botões de navegação -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <!-- Bolinhas -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 3,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
 
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>

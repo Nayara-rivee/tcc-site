@@ -844,217 +844,148 @@
         }
     
         
-/*--------------------------------------------------------------
-# membros Section
---------------------------------------------------------------*/
-.membros {
-  /* Custom properties */
-  --card-radius: 14px;
-  --photo-radius: 18px;
-  --shadow-color: color-mix(in srgb, var(--default-color), transparent 92%);
-  --soft-border: color-mix(in srgb, var(--default-color), transparent 85%);
-  --muted-text: color-mix(in srgb, var(--default-color), transparent 40%);
-  --accent-soft: color-mix(in srgb, var(--accent-color), transparent 85%);
-  --accent-tint: color-mix(in srgb, var(--accent-color), white 85%);
-}
+/* Corpo da página */
 
-.membros .featured-membro .membro-photo {
-  position: relative;
-  border-radius: var(--photo-radius);
-  overflow: hidden;
-  box-shadow: 0 16px 40px var(--shadow-color);
-}
 
-.membros .featured-membro .membro-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
+        h2 {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.membros .featured-membro .membro-photo:hover img {
-  transform: scale(1.05);
-}
+        /* Swiper centralizado */
+        .swiper {
+            margin-top:100px ;
+            width: 100%;
+            max-width: 600px;
+            padding-bottom: 50px;
 
-.membros .featured-membro .membro-photo .badge-overlay {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-}
+            /* Para centralizar slides horizontalmente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.membros .featured-membro .membro-photo .badge-overlay .pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  font-size: 12px;
-  border-radius: 999px;
-  color: var(--default-color);
-  background: var(--accent-tint);
-  border: 1px solid var(--accent-soft);
-}
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            /* centraliza a imagem no slide */
+            align-items: center;
+        }
 
-.membros .featured-membro .membro-photo .badge-overlay .pill i {
-  color: var(--accent-color);
-}
+        .swiper-slide img {
+            display: block;
+            width: 200px;
+            height: 280px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
 
-.membros .featured-membro .membro-content .topline {
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
-}
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            /* mesmo tamanho da imagem */
+            height: 280px;
+            /* mesmo tamanho da imagem */
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            /* garante que fique exatamente em cima da foto */
+        }
 
-.membros .featured-membro .membro-content .name {
-  margin: 0 0 6px 0;
-}
 
-.membros .featured-membro .membro-content .role {
-  margin: 0;
-  color: var(--muted-text);
-  font-weight: 500;
-}
 
-.membros .featured-membro .membro-content .bio {
-  max-width: 56ch;
-}
+        .skill span {
+            font-size: 12px;
+            display: block;
+            margin-bottom: 3px;
+            text-align: center;
+            /* centraliza o nome da skill */
+        }
 
-.membros .featured-membro .membro-content .awards .award-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-  color: var(--default-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border: 1px solid var(--accent-soft);
-}
+        .progress {
+            margin: 0 auto;
+            /* centraliza a barra de progresso */
+        }
 
-.membros .featured-membro .membro-content .awards .award-badge i {
-  color: var(--accent-color);
-}
+        .overlay h3 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
 
-.membros .featured-membro .membro-content .signature img {
-  max-width: 150px;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 6px var(--shadow-color));
-}
+        .skill {
+            width: 100%;
+            margin: 5px 0;
+        }
 
-.membros .team-grid .membro-card {
-  background: var(--surface-color);
-  border: 1px solid var(--soft-border);
-  border-radius: var(--card-radius);
-  box-shadow: 0 12px 32px var(--shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .skill span {
+            font-size: 12px;
+            display: block;
+            margin-bottom: 3px;
+            text-align: left;
+        }
 
-.membros .team-grid .membro-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 44px color-mix(in srgb, var(--default-color), transparent 88%);
-}
+        .progress {
+            width: 100%;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            overflow: hidden;
+        }
 
-.membros .team-grid .membro-card .image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-top-left-radius: var(--card-radius);
-  border-top-right-radius: var(--card-radius);
-  background: color-mix(in srgb, var(--accent-color), transparent 94%);
-}
+        .progress-bar {
+            height: 6px;
+            background: #4CAF50;
+            width: 0;
+            transition: width 1s ease;
+        }
 
-.membros .team-grid .membro-card .image-wrapper img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scale(1.01);
-  transition: transform 0.3s ease;
-}
+        .social-icons {
+            margin-top: 10px;
+        }
 
-.membros .team-grid .membro-card .image-wrapper .social {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: flex;
-  gap: 8px;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.3s ease;
-}
+        .social-icons a {
+            color: white;
+            margin: 0 5px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
 
-.membros .team-grid .membro-card .image-wrapper .social a {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--background-color);
-  color: var(--default-color);
-  border: 1px solid var(--soft-border);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+        .social-icons a:hover {
+            color: #FFD700;
+        }
 
-.membros .team-grid .membro-card .image-wrapper .social a:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transform: translateY(-2px);
-}
+        .swiper-slide-prev img,
+        .swiper-slide-next img {
+            transform: scale(0.8);
+            filter: blur(2px) brightness(0.8);
+        }
 
-.membros .team-grid .membro-card:hover .image-wrapper img {
-  transform: scale(1.06);
-}
+        .swiper-slide-active img:hover {
+            transform: scale(1.1);
+        }
 
-.membros .team-grid .membro-card:hover .image-wrapper .social {
-  opacity: 1;
-  transform: translateY(0);
-}
+        .swiper-slide-active:hover .overlay {
+            opacity: 1;
+        }
 
-.membros .team-grid .membro-card .content .name {
-  margin: 0;
-}
+        .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.6;
+        }
 
-.membros .team-grid .membro-card .content .role {
-  color: var(--muted-text);
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.membros .team-grid .membro-card .content .excerpt {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 12px;
-}
-
-.membros .team-grid .membro-card .content .mini-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 999px;
-  color: var(--default-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  border: 1px solid var(--accent-soft);
-}
-
-.membros .team-grid .membro-card .content .mini-badge i {
-  color: var(--accent-color);
-}
-
-.membros .swiper-wrapper {
-  height: auto !important;
-}
-
-@media (max-width: 768px) {
-  .membros .featured-membro .membro-content .bio {
-    max-width: 100%;
-  }
-
-  .membros .team-grid .membro-card .image-wrapper .social a {
-    width: 34px;
-    height: 34px;
-  }
-}
+        .swiper-pagination-bullet-active {
+            background: black;
+            opacity: 1;
+            transform: scale(1.3);
+        }
