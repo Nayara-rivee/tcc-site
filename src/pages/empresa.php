@@ -159,60 +159,81 @@ require_once '../database/auth.php';
 
         </section><!-- /Hero Section -->
 
-        <!-- ======== feature-section start ======== -->
-        <section id="servicos" class="py-5">
-            <div class="container">
-                <div class="row text-center justify-content-center">
+            <!-- ======== feature-section start ======== -->
+    <section id="servicos" class="feature-section py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="fw-bold">Nossos <span class="text-muted">Serviços</span></h2>
+                    <p class="text-muted">Oferecemos soluções completas para sua presença digital</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
 
-                    <!-- Card 1 -->
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="single-feature">
-                            <div class="icon-circle">
-                                <i class='bx bx-code'></i>
-                            </div>
-                            <div class="content">
-                                <h5>Sites Responsivos</h5>
-                                <p>Sites que se adaptam a qualquer dispositivo, proporcionando a melhor experiência ao usuário.</p>
+                <!-- Card 1 -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon icon-circle mb-3 mx-auto">
+                                    <i class='bx bx-code'></i>
+                                </div>
+                                <h5 class="card-title">Sites Responsivos</h5>
+                                <p class="card-text">
+                                    Sites que se adaptam a qualquer dispositivo, proporcionando a melhor experiência ao
+                                    usuário.
+                                </p>
                             </div>
                         </div>
                     </div>
 
+
                     <!-- Card 2 -->
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="single-feature">
-                            <div class="icon-circle">
-                                <i class='bx bx-store-alt-2'></i>
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon icon-circle mb-3 mx-auto">
+                                    <i class='bx bx-store-alt-2'></i>
+                                </div>
+                                <h5 class="card-title">Lojas Virtuais</h5>
+                                <p class="card-text">Comércio eletrônico moderno com design atrativo e ferramentas para
+                                    aumentar suas vendas.</p>
                             </div>
-                            <h5>Lojas Virtuais</h5>
-                            <p>Comércio eletrônico moderno com design atrativo e ferramentas para aumentar suas vendas.</p>
                         </div>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="single-feature">
-                            <div class="icon-circle">
-                                <i class='bx bx-pencil'></i>
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon icon-circle mb-3 mx-auto">
+                                    <i class='bx bx-pencil'></i>
+                                </div>
+                                <h5 class="card-title">Otimização SEO</h5>
+                                <p class="card-text">Melhoramos o posicionamento do seu site no Google e atraímos mais
+                                    visitantes qualificados.</p>
                             </div>
-                            <h5>Otimização SEO</h5>
-                            <p>Melhoramos o posicionamento do seu site no Google e atraímos mais visitantes qualificados.</p>
                         </div>
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="single-feature">
-                            <div class="icon-circle">
-                                <i class="fas fa-universal-access"></i>
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon icon-circle mb-3 mx-auto">
+                                    <i class='bx bx-mobile'></i>
+                                </div>
+                                <h5 class="card-title">Aplicativos Mobile</h5>
+                                <p class="card-text">Aplicativos com design moderno e foco em usabilidade, performance e
+                                    integração com sistemas web.</p>
                             </div>
-                            <h5>Acessibilidade</h5>
-                            <p>Aferecemos acessibilidade para todos os tipos de públicos</p>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </section>
+    </section>
+    <!-- ======== feature-section end ======== -->
 
         <!-- About Section -->
         <section id="about" class="about section">
