@@ -1,6 +1,34 @@
 <?php
-require_once '../database/config.php';
+require_once '../database/config.php'; 
 require_once '../database/auth.php';
+
+if (estaLogado()) {
+    $usuario_id = $_SESSION['usuario']['id'];
+
+    $stmtCaminhoFoto = $pdo->prepare('SELECT caminho_foto FROM usuarios WHERE id = :usuario_id');
+    $stmtCaminhoFoto->execute([
+        ':usuario_id' => $usuario_id
+    ]);
+
+    $caminhoFoto = $stmtCaminhoFoto->fetchColumn();
+    $fotoPerfil = !empty($caminhoFoto) ? $caminhoFoto : '../img/usuarioGenerico.jpg';
+
+    // Se o nível for 0 (cliente), link para perfilUsuario.php
+    if ($_SESSION['usuario']['nivel'] == 0) {
+        $link_perfil = '../pages/perfilUsuario.php';
+    }
+    // Se o nível for 1 (admin), link para perfil.php
+    else if ($_SESSION['usuario']['nivel'] == 1) {
+        $link_perfil = '../pages/perfil.php';
+    }
+    // Se for outro nível ou indefinido, usa um link padrão seguro.
+    else {
+        $link_perfil = '../pages/perfil.php';
+    }
+
+    $primeiro_nome = ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -77,31 +105,48 @@ require_once '../database/auth.php';
                                         <a class="page-scroll" href="empresa.php">Sobre</a>
                                     </li>
 
-                                    <?php if (estaLogado()): ?>
-                                        <!-- Mostra a imagem do usuário logado -->
-                                        <div class="d-flex align-items-center flex-column gap-2"
-                                            style="position: relative; bottom: 15px; left: 20px;">
-                                            <?php
-                                            $fotoPerfil = !empty($_SESSION['usuario']['foto'])
-                                                ? '../uploads/' . $_SESSION['usuario']['foto']
-                                                : '../img/usuarioGenerico.jpg';
-                                            ?>
-                                            <a href="../pages/perfil.php" class="perfil">
-                                                <img src="<?= $fotoPerfil ?>"
-                                                    class="border" alt="Usuário"
-                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                    <?php if (estaLogado()) : ?>
+                                        <li class="nav-item d-lg-none">
+                                            <a class="nav-link" href="../pages/perfil.php">Meu Perfil</a>
+                                        </li>
+                                    <?php else : ?>
+                                        <li class="nav-item d-lg-none">
+                                            <a class="nav-link" href="../pages/login.php">Login</a>
+                                        </li>
+                                    <?php endif ?>
+                                </ul>
+                                <?php if (estaLogado()) : ?>
+                                    <!-- Mostra a imagem do usuário logado (apenas em desktop) -->
+                                    <?php if ($_SESSION['usuario']['nivel'] == 0): ?>
+                                        <div class="d-none d-lg-flex align-items-center ms-4">
+                                            <a href="../pages/perfilUsuario.php"
+                                                class="perfil d-flex align-items-center text-decoration-none">
+                                                <img src="<?php echo $fotoPerfil; ?>" class="border rounded-circle me-2"
+                                                    alt="Usuário" style="width: 40px; height: 40px;">
+                                                <span
+                                                    class="fw-bold text-white"><?php echo ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?></span>
                                             </a>
-                                            <span class="fw-bold" style="color: white;">
-                                                <?= ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?>
-                                            </span>
-
                                         </div>
-                                    <?php else: ?>
 
+                                    <?php elseif ($_SESSION['usuario']['nivel'] == 1): ?>
+                                        <div class="d-none d-lg-flex align-items-center ms-4">
+                                            <a href="../pages/perfil.php"
+                                                class="perfil d-flex align-items-center text-decoration-none">
+                                                <img src="<?php echo $fotoPerfil; ?>" class="border rounded-circle me-2"
+                                                    alt="Usuário" style="width: 40px; height: 40px;">
+                                                <span
+                                                    class="fw-bold text-white"><?php echo ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?></span>
+                                            </a>
+                                        </div>
+                                    <?php endif ?>
+
+                                <?php else : ?>
+                                    <ul class="navbar-nav">
                                         <li class="nav-item-login">
                                             <a href="../pages/login.php">Login</a>
                                         </li>
-                                    <?php endif ?>
+                                    </ul>
+                                <?php endif ?>
 
                                 </ul>
                             </div>
@@ -159,81 +204,81 @@ require_once '../database/auth.php';
 
         </section><!-- /Hero Section -->
 
-            <!-- ======== feature-section start ======== -->
-    <section id="servicos" class="feature-section py-5">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="fw-bold">Nossos <span class="text-muted">Serviços</span></h2>
-                    <p class="text-muted">Oferecemos soluções completas para sua presença digital</p>
+        <!-- ======== feature-section start ======== -->
+        <section id="servicos" class="feature-section py-5">
+            <div class="container">
+                <div class="row text-center mb-5">
+                    <div class="col-12">
+                        <h2 class="fw-bold">Nossos <span class="text-muted">Serviços</span></h2>
+                        <p class="text-muted">Oferecemos soluções completas para sua presença digital</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
+                <div class="row justify-content-center">
 
-                <!-- Card 1 -->
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="card feature-card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon icon-circle mb-3 mx-auto">
-                                    <i class='bx bx-code'></i>
+                    <!-- Card 1 -->
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                            <div class="card feature-card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon icon-circle mb-3 mx-auto">
+                                        <i class='bx bx-code'></i>
+                                    </div>
+                                    <h5 class="card-title">Sites Responsivos</h5>
+                                    <p class="card-text">
+                                        Sites que se adaptam a qualquer dispositivo, proporcionando a melhor experiência ao
+                                        usuário.
+                                    </p>
                                 </div>
-                                <h5 class="card-title">Sites Responsivos</h5>
-                                <p class="card-text">
-                                    Sites que se adaptam a qualquer dispositivo, proporcionando a melhor experiência ao
-                                    usuário.
-                                </p>
                             </div>
                         </div>
-                    </div>
 
 
-                    <!-- Card 2 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="card feature-card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon icon-circle mb-3 mx-auto">
-                                    <i class='bx bx-store-alt-2'></i>
+                        <!-- Card 2 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                            <div class="card feature-card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon icon-circle mb-3 mx-auto">
+                                        <i class='bx bx-store-alt-2'></i>
+                                    </div>
+                                    <h5 class="card-title">Lojas Virtuais</h5>
+                                    <p class="card-text">Comércio eletrônico moderno com design atrativo e ferramentas para
+                                        aumentar suas vendas.</p>
                                 </div>
-                                <h5 class="card-title">Lojas Virtuais</h5>
-                                <p class="card-text">Comércio eletrônico moderno com design atrativo e ferramentas para
-                                    aumentar suas vendas.</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Card 3 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="card feature-card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon icon-circle mb-3 mx-auto">
-                                    <i class='bx bx-pencil'></i>
+                        <!-- Card 3 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                            <div class="card feature-card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon icon-circle mb-3 mx-auto">
+                                        <i class='bx bx-pencil'></i>
+                                    </div>
+                                    <h5 class="card-title">Otimização SEO</h5>
+                                    <p class="card-text">Melhoramos o posicionamento do seu site no Google e atraímos mais
+                                        visitantes qualificados.</p>
                                 </div>
-                                <h5 class="card-title">Otimização SEO</h5>
-                                <p class="card-text">Melhoramos o posicionamento do seu site no Google e atraímos mais
-                                    visitantes qualificados.</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Card 4 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="card feature-card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon icon-circle mb-3 mx-auto">
-                                    <i class='bx bx-mobile'></i>
+                        <!-- Card 4 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                            <div class="card feature-card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon icon-circle mb-3 mx-auto">
+                                        <i class='bx bx-mobile'></i>
+                                    </div>
+                                    <h5 class="card-title">Aplicativos Mobile</h5>
+                                    <p class="card-text">Aplicativos com design moderno e foco em usabilidade, performance e
+                                        integração com sistemas web.</p>
                                 </div>
-                                <h5 class="card-title">Aplicativos Mobile</h5>
-                                <p class="card-text">Aplicativos com design moderno e foco em usabilidade, performance e
-                                    integração com sistemas web.</p>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
+        </section>
+        <!-- ======== feature-section end ======== -->
 
         <!-- About Section -->
         <section id="about" class="about section">

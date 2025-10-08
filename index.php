@@ -1,6 +1,34 @@
 <?php
 require_once 'src/database/config.php';
 require_once 'src/database/auth.php';
+
+if (estaLogado()) {
+    $usuario_id = $_SESSION['usuario']['id'];
+
+    $stmtCaminhoFoto = $pdo->prepare('SELECT caminho_foto FROM usuarios WHERE id = :usuario_id');
+    $stmtCaminhoFoto->execute([
+        ':usuario_id' => $usuario_id
+    ]);
+
+    $caminhoFoto = $stmtCaminhoFoto->fetchColumn();
+    $fotoPerfil = !empty($caminhoFoto) ? $caminhoFoto : 'src/img/usuarioGenerico.jpg';
+
+    // Se o nível for 0 (cliente), link para perfilUsuario.php
+    if ($_SESSION['usuario']['nivel'] == 0) {
+        $link_perfil = 'src/pages/perfilUsuario.php';
+    }
+    // Se o nível for 1 (admin), link para perfil.php
+    else if ($_SESSION['usuario']['nivel'] == 1) {
+        $link_perfil = 'src/pages/perfil.php';
+    }
+    // Se for outro nível ou indefinido, usa um link padrão seguro.
+    else {
+        $link_perfil = 'src/pages/perfil.php';
+    }
+
+    $primeiro_nome = ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -100,31 +128,48 @@ require_once 'src/database/auth.php';
                                         <a href="#empresa">Sobre</a>
                                     </li>
 
-                                    <?php if (estaLogado()): ?>
-                                        <?php
-                                        $fotoPerfil = !empty($_SESSION['usuario']['foto'])
-                                            ? 'src/uploads/' . $_SESSION['usuario']['foto'] // caminho correto
-                                            : 'src/img/usuarioGenerico.jpg';
-                                        ?>
-                                        <div class="d-flex align-items-center flex-column gap-2"
-                                            style="position: relative; bottom: 15px; left: 20px;">
-                                            <a href="src/pages/perfil.php" class="perfil">
-                                                <img src="<?= $fotoPerfil ?>"
-                                                    class="border" alt="Usuário"
-                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                    <?php if (estaLogado()) : ?>
+                                        <li class="nav-item d-lg-none">
+                                            <a class="nav-link" href="src/pages/perfil.php">Meu Perfil</a>
+                                        </li>
+                                    <?php else : ?>
+                                        <li class="nav-item d-lg-none">
+                                            <a class="nav-link" href="src/pages/login.php">Login</a>
+                                        </li>
+                                    <?php endif ?>
+                                </ul>
+                                <?php if (estaLogado()) : ?>
+                                    <!-- Mostra a imagem do usuário logado (apenas em desktop) -->
+                                    <?php if ($_SESSION['usuario']['nivel'] == 0): ?>
+                                        <div class="d-none d-lg-flex align-items-center ms-4">
+                                            <a href="src/pages/perfilUsuario.php"
+                                                class="perfil d-flex align-items-center text-decoration-none">
+                                                <img src="<?php echo $fotoPerfil; ?>" class="border rounded-circle me-2"
+                                                    alt="Usuário" style="width: 40px; height: 40px;">
+                                                <span
+                                                    class="fw-bold text-white"><?php echo ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?></span>
                                             </a>
-                                            <span class="fw-bold" style="color: white;">
-                                                <?= ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?>
-                                            </span>
                                         </div>
-                                    <?php else: ?>
 
+                                    <?php elseif ($_SESSION['usuario']['nivel'] == 1): ?>
+                                        <div class="d-none d-lg-flex align-items-center ms-4">
+                                            <a href="src/pages/perfil.php"
+                                                class="perfil d-flex align-items-center text-decoration-none">
+                                                <img src="<?php echo $fotoPerfil; ?>" class="border rounded-circle me-2"
+                                                    alt="Usuário" style="width: 40px; height: 40px;">
+                                                <span
+                                                    class="fw-bold text-white"><?php echo ucfirst(explode(' ', $_SESSION['usuario']['nome'])[0]) ?></span>
+                                            </a>
+                                        </div>
+                                    <?php endif ?>
+
+                                <?php else : ?>
+                                    <ul class="navbar-nav">
                                         <li class="nav-item-login">
                                             <a href="src/pages/login.php">Login</a>
                                         </li>
-                                    <?php endif ?>
-
-                                </ul>
+                                    </ul>
+                                <?php endif ?>
                             </div>
                             <!-- navbar collapse -->
                         </nav>
@@ -171,7 +216,7 @@ require_once 'src/database/auth.php';
     </section>
     <!-- ======== hero-section end ======== -->
 
-     <!-- ======== feature-section start ======== -->
+    <!-- ======== feature-section start ======== -->
     <section id="servicos" class="feature-section py-5">
         <div class="container">
             <div class="row text-center mb-5">
@@ -247,7 +292,7 @@ require_once 'src/database/auth.php';
     </section>
     <!-- ======== feature-section end ======== -->
 
-<!-- Planos Section -->
+    <!-- Planos Section -->
     <section class="container-fluid py-5 bg-light" id="planos">
         <div class="container">
             <div class="text-center mb-5">
@@ -294,15 +339,15 @@ require_once 'src/database/auth.php';
                                         Usar</span>
                                     <span class="badge bg-light text-dark border rounded-pill mb-1">Rápido</span>
                                 </div>
-                                <?php if(!estaLogado()):?>
-                                <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
                                 <?php else : ?>
-                                <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
-                                <?php endif;?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -347,15 +392,15 @@ require_once 'src/database/auth.php';
                                         Digital</span>
                                     <span class="badge bg-light text-dark border rounded-pill mb-1">Estratégico</span>
                                 </div>
-                                <?php if(!estaLogado()):?>
-                                <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
                                 <?php else : ?>
-                                <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
-                                <?php endif;?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -401,15 +446,15 @@ require_once 'src/database/auth.php';
                                     <span class="badge bg-light text-dark border rounded-pill mb-1">Alta
                                         Performance</span>
                                 </div>
-                                <?php if(!estaLogado()):?>
-                                <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
+                                <?php if (!estaLogado()): ?>
+                                    <a href="src/pages/login.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
                                 <?php else : ?>
-                                <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
-                                    Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
-                                </a>
-                                <?php endif;?>
+                                    <a href="src/pages/faleconosco.php" class="btn btn-primary w-100 fw-semibold">
+                                        Adquira Já <i class="bi bi-arrow-right-circle ms-1"></i>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

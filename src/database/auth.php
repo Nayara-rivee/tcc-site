@@ -1,52 +1,61 @@
 <?php
 require_once 'config.php';
 
-function registrarUsuario($nome, $email, $senha) {
+function registrarUsuario($dados) {
     global $pdo;
 
-    //Verifica se tem algum campo vazio
-    if(empty($nome) || empty($senha) || empty($email)) {
-        return ['sucesso' => false, 'message'=> 'Todos os campos são obrigatórios.'];
-    };
+    // Extrai e limpa os dados do array
+    $nome = trim($dados['nome'] ?? '');
+    $email = trim($dados['email'] ?? '');
+    $senha_hash_final = $dados['senha'] ?? '';
+    $cpf = $dados['cpf'] ?? null;
+    $rg = $dados['rg'] ?? null;
+    $genero = $dados['genero'] ?? null;
+    $numero = $dados['numero'] ?? null;
+    $caminho_foto = $dados['caminho_foto'] ?? null;
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return ['sucesso' => false, 'message' => 'Email inválido!'];
+    if (empty($nome) || empty($email) || empty($senha_hash_final)) {
+        return ['sucesso' => false, 'message' => 'Nome, e-mail e senha são obrigatórios.'];
     }
-
-    if(strlen($senha)<6) {
-        return ['sucesso' => false, 'message' => 'A senha deve ter o mínimo 6 caractéres.'];
-    }
-
-    $sql = 'SELECT id FROM usuarios WHERE email = :email';
-    $stmt = $pdo-> prepare(($sql));
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->execute();
     
-    if($stmt->rowCount() > 0) {
-        return ['sucesso' => false, 'message' => 'Email já cadastrado'];
-    };
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return ['sucesso' => false, 'message' => 'Formato de e-mail inválido!'];
+    }
 
-    //Criptografia da senha
+    // --- VERIFICAÇÃO DE E-MAIL DUPLICADO ---
+    $sql_check = 'SELECT id FROM usuarios WHERE email = :email';
+    $stmt_check = $pdo->prepare($sql_check);
+    $stmt_check->execute([':email' => $email]);
+    
+    if ($stmt_check->fetch()) {
+        return ['sucesso' => false, 'message' => 'Este endereço de e-mail já está cadastrado.'];
+    }
 
-    $senhaHash = password_hash($senha, PASSWORD_BCRYPT, ['cost' => 12]);
-
-    //Inserção no banco
+    // --- PREPARAÇÃO E INSERÇÃO NO BANCO ---
     try {
-        $sql = 'INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)';
+        $sql = 'INSERT INTO usuarios (nome, email, numero, senha, cpf, rg, genero, caminho_foto) 
+                VALUES (:nome, :email, :numero, :senha, :cpf, :rg, :genero, :caminho_foto)';
+                
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':senha', $senhaHash, PDO::PARAM_STR);
-
-        $result = $stmt->execute();
+        $result = $stmt->execute([
+            ':nome' => $nome,
+            ':email' => $email,
+            ':numero' => $numero,
+            ':senha' => $senha_hash_final, 
+            ':cpf' => $cpf,
+            ':rg' => $rg,
+            ':genero' => $genero,
+            ':caminho_foto' => $caminho_foto
+        ]);
 
         return [
             'sucesso' => $result,
-            'message' => $result ? 'Registro Realizado com Sucesso' : 'Erro ao Registrar'
+            'message' => $result ? 'Cadastro realizado com sucesso!' : 'Ocorreu um erro ao registrar.'
         ];
         
     } catch (PDOException $e) {
-        return['sucesso' => false, 'message' => 'Erro no banco de dados: ' . $e->getMessage()];
+       
+        return ['sucesso' => false, 'message' => 'Erro no banco de dados. Por favor, tente mais tarde.'];
     }
 }
 

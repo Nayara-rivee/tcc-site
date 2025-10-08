@@ -1,4 +1,3 @@
-
 <?php
 // esqueci-senha.php
 require '../database/config.php';
@@ -6,6 +5,10 @@ require '../../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+// 1. Variáveis para capturar o status e a classe CSS
+$mensagem_status = '';
+$mensagem_class = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
@@ -16,56 +19,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     if (!$user) {
-        echo "E-mail não cadastrado!";
-        exit;
-    }
+        // Mensagem de segurança: não informamos se o e-mail existe, apenas que o processo foi iniciado.
+        $mensagem_status = "Se o e-mail estiver cadastrado, o link de redefinição foi enviado! Verifique sua caixa de entrada ou spam.";
+        $mensagem_class = 'alert-info';
+    } else {
 
-    // Gerar token e expiração
-    $token = bin2hex(random_bytes(32));
-    $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
+        // Gerar token e expiração
+        $token = bin2hex(random_bytes(32));
+        $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
-    // Salvar token no banco
-    $stmt = $pdo->prepare("UPDATE usuarios SET token = :token, token_expira = :expira WHERE id = :id");
-    $stmt->execute([
-        'token' => $token,
-        'expira' => $expira,
-        'id' => $user['id']
-    ]);
+        // Salvar token no banco
+        $stmt = $pdo->prepare("UPDATE usuarios SET token = :token, token_expira = :expira WHERE id = :id");
+        $stmt->execute([
+            'token' => $token,
+            'expira' => $expira,
+            'id' => $user['id']
+        ]);
 
-    // Enviar e-mail
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'aurorait12345@gmail.com'; // seu e-mail real
-        $mail->Password = 'xzwv vigj wxrt eero'; // senha de app
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        // Enviar e-mail
+        $mail = new PHPMailer(true);
+        try {
+            // CORREÇÃO: Garante que caracteres especiais (ç, ã) funcionem
+            $mail->CharSet = 'UTF-8'; 
+            
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'aurorait12345@gmail.com'; 
+            // A senha deve estar SEM espaços
+            $mail->Password = 'xzwvvigjwxrteero'; 
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
 
-        // Apenas para XAMPP teste local, ignore se for produção
-        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-            $mail->SMTPOptions = [
-                'ssl' => [
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true,
-                ]
-            ];
+            // Apenas para XAMPP teste local (Mantido, pois é necessário para TLS)
+            if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+                $mail->SMTPOptions = [
+                    'ssl' => [
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true,
+                    ]
+                ];
+            }
+
+            $mail->setFrom('aurorait12345@gmail.com', 'Seu Site');
+            $mail->addAddress($email);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Redefinição de senha';
+            $mail->Body = "Clique no link para redefinir sua senha: 
+                <a href='http://localhost/Tcc-site/src/pages/esqueci.php?token=$token'>Redefinir Senha</a>";
+
+            $mail->send();
+            
+            // Sucesso
+            $mensagem_status = "E-mail de redefinição enviado! Verifique sua caixa de entrada ou spam.";
+            $mensagem_class = 'alert-success';
+            
+        } catch (Exception $e) {
+            // Falha
+            $mensagem_status = "Erro ao enviar e-mail. Tente novamente mais tarde.";
+            $mensagem_class = 'alert-danger';
         }
-
-        $mail->setFrom('aurorait12345@gmail.com', 'Seu Site');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Redefinição de senha';
-        $mail->Body = "Clique no link para redefinir sua senha: 
-            <a href='http://localhost/Tcc-site/src/pages/esqueci.php?token=$token'>Redefinir Senha</a>";
-
-        $mail->send();
-        echo "E-mail de redefinição enviado! Verifique sua caixa de entrada ou spam.";
-    } catch (Exception $e) {
-        echo "Erro ao enviar e-mail: " . $mail->ErrorInfo;
     }
 }
 ?>
@@ -83,14 +98,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <!-- Formulário -->
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="row w-100 justify-content-center">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card py-3 px-2">
                     <p class="text-center mb-3 mt-2">Redefinir Senha</p>
 
-                    <form method="post" class="myform">
+                    <?php if (!empty($mensagem_status)): ?>
+                        <div class="alert <?= $mensagem_class; ?>" role="alert">
+                            <?= htmlspecialchars($mensagem_status); ?>
+                        </div>
+                    <?php endif; ?>
+                                        <form method="post" class="myform">
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="Seu e-mail" required>
                         </div>
@@ -100,8 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </button>
                         </div>
                     </form>
+                    
+                    <a href="login.php" class="d-block text-center mt-3">Voltar ao Login</a>
                 </div>
-            </div>
+           </div>
         </div>
     </div>
 </body>

@@ -1,3 +1,12 @@
+<?php
+require_once '../database/config.php';
+require_once '../database/auth.php';
+
+if(!estaLogado()) {
+    header('Location: login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,37 +20,34 @@
         href="https://unpkg.com/bs-brain@2.0.4/components/contacts/contact-5/assets/css/contact-5.css">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/css-pages/contato.css">
+
+
 </head>
 
 <body>
 
-    <!-- libras -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
-    <!-- end libras -->
 
     <section class="py-4 py-md-5 py-xl-9">
         <div class="container">
             <div class="row gy-4 gy-md-5 gy-lg-0 align-items-md-center">
                 <!-- FORMULÁRIO -->
                 <div class="col-12 col-lg-6">
-                    <a href="../../index.php" class="icon btn btn-link text-white mb-3 d-inline-flex align-items-center gap-1 text-decoration-none">
+                    <a href="../../index.php"
+                        class="icon btn btn-link text-white mb-3 d-inline-flex align-items-center gap-1 text-decoration-none">
                         <i class='bx bx-arrow-back'></i>
                     </a>
 
                     <div class="border overflow-hidden">
-                        <form action="../database/captura.php" method="post" name="form1" id="name">
+                        <form action="../database/contatoEmail.php" method="POST">
                             <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                                 <div class="col-12">
-                                    <label for="fullname" class="form-label">Nome Completo <span class="text-danger">*</span></label>
+                                    <label for="fullname" class="form-label">Nome Completo <span
+                                            class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="fullname" name="fullname" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email <span
+                                            class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class='bx bx-envelope'></i></span>
                                         <input type="email" class="form-control" id="email" name="email" required>
@@ -55,16 +61,20 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="subject" class="form-label">Assunto <span class="text-danger">*</span></label>
+                                    <label for="subject" class="form-label">Assunto <span
+                                            class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="subject" name="subject" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="message" class="form-label">Mensagem <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                                    <label for="message" class="form-label">Mensagem <span
+                                            class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="message" name="message" rows="3"
+                                        required></textarea>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-grid">
-                                        <button class="btn btn-primary btn-lg" type="submit">Enviar Mensagem</button>
+                                        <button class="btn btn-primary btn-lg" type="submit">Enviar
+                                            Mensagem</button>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +87,8 @@
                     <!-- TÍTULO -->
                     <div class="mb-4">
                         <h3 class="fs-5 text-uppercase">Entre em contato</h3>
-                        <h2 class="display-6 fw-semibold">Para retirar todas as suas dúvidas sobre nossos serviços, entre em contato conosco</h2>
+                        <h2 class="display-6 fw-semibold">Para retirar todas as suas dúvidas sobre nossos serviços,
+                            entre em contato conosco</h2>
                     </div>
 
                     <!-- CONTATOS -->
@@ -93,7 +104,8 @@
                                     <p class="mb-2">Fale conosco diretamente</p>
                                     <hr class="w-75 mb-3 border-dark-subtle">
                                     <p class="mb-0">
-                                        <a class="text-decoration-none" href="tel:+15057922430">(505) 792-2430</a>
+                                        <a class="text-decoration-none" href="tel:+5511974557734">(11)
+                                            97455-7734</a>
                                     </p>
                                 </div>
                                 <!-- EMAIL -->
@@ -105,7 +117,8 @@
                                     <p class="mb-2">Fale conosco diretamente</p>
                                     <hr class="w-75 mb-3 border-dark-subtle">
                                     <p class="mb-0">
-                                        <a class="text-decoration-none" href="mailto:demo@yourdomain.com">demo@yourdomain.com</a>
+                                        <a class="text-decoration-none"
+                                            href="mailto:nck.tec.suporte@gmail.com">nck.tec.suporte@gmail.com</a>
                                     </p>
                                 </div>
                             </div>
@@ -115,16 +128,6 @@
             </div>
         </div>
     </section>
-
-<!-- scripts -->
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
-<!-- end scripts -->
-
 </body>
 
 </html>

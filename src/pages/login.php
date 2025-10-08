@@ -1,23 +1,19 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once '../database/config.php';
+require_once '../database/auth.php';
 
-require '../database/config.php';
-require '../database/auth.php';
+$erro = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = $_POST['senha'] ?? '';
 
-$erro = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-
-    // Usa a função do auth.php
     if (logarUsuario($email, $senha)) {
-        header("Location: perfil.php");
-        exit;
+        $redirect = $_SESSION['redirect_url'] ?? '../../index.php';
+        unset($_SESSION['redirect_url']);
+        header("Location: $redirect");
+        exit();
     } else {
-        $erro = "Email ou senha inválidos!";
+        $erro = 'Credenciais inválidas. Por favor, tente novamente.';
     }
 }
 ?>
@@ -41,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="card py-3 px-2">
                     <p class="text-center mb-3 mt-2">Login</p>
 
-                    <?php if (!empty($erro)): ?>
-                        <div class="alert alert-danger text-center"><?= $erro ?></div>
+                    <?php if ($erro): ?>
+                        <div class="alert alert-danger mb-4"><?= htmlspecialchars($erro) ?></div>
                     <?php endif; ?>
 
                     <form method="post" class="myform">

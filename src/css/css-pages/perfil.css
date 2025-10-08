@@ -1,24 +1,47 @@
 body {
-    /* background-image: url(../../img/fundoPerfil.png);
+    background-image: url(../../img/fundoPerfil.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; */
-
-  background: linear-gradient(to right, #0ab8a1, #287697);
+    background-size: cover;
 }
 
-.nav-menu{
-    background: #0ab8a1cb;
-}
+.stats-grid {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que os cartões se ajustem em telas menores */
+        gap: 1.5rem;
+        /* Espaço entre os cartões */
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        /* Um cinza claro para destacar a seção */
+        border-radius: 1rem;
+    }
 
-.btn{
-    background: #62cabc;
-    color: aliceblue;
-    transition: 0.3s ease-in-out;
-}
+    .stat-card {
+        flex: 1 1 200px;
+        /* Faz os cartões se ajustarem e ocuparem o espaço disponível */
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        /* Fundo com gradiente */
+        color: white;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-.btn:hover{
-    background: #62cabcb6;
-    color: #097a6b;
-    transition: 0.3s ease-in-out;
-}
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
