@@ -1,0 +1,4 @@
+Explicação dos Filtros SVG:
+filter: url("data:image/svg+xml;utf8,<svg ... />#id_do_filtro"): Esta é uma maneira de embutir um SVG diretamente no CSS. O SVG contém uma tag <filter> com uma <feColorMatrix>.
+
+<feColorMatrix type='matrix' values='...'/>: Esta é a parte mágica. Ela aplica uma transformação de matriz 5x4 nas cores RGB dos pixels. As matrizes usadas aqui são padrões para simular cada tipo de daltonismo. Elas ajustam os componentes de cor (vermelho, verde, azul) para replicar como as pessoas com esses tipos de daltonismo percebem as cores.
