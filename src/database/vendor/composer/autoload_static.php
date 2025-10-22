@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite3aadb25d499477f041856d84ecf4d72
+class ComposerStaticInit594ce5a1f7c6a19b509a9079bb4bb507
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -23,10 +23,6 @@ class ComposerStaticInite3aadb25d499477f041856d84ecf4d72
         array (
             'PhpOption\\' => 10,
             'PHPMailer\\PHPMailer\\' => 20,
-        ),
-        'N' => 
-        array (
-            'Nickolascremasco\\AuroraIt\\' => 26,
         ),
         'G' => 
         array (
@@ -59,10 +55,6 @@ class ComposerStaticInite3aadb25d499477f041856d84ecf4d72
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
-        'Nickolascremasco\\AuroraIt\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'GrahamCampbell\\ResultType\\' => 
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
@@ -85,9 +77,9 @@ class ComposerStaticInite3aadb25d499477f041856d84ecf4d72
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite3aadb25d499477f041856d84ecf4d72::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite3aadb25d499477f041856d84ecf4d72::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite3aadb25d499477f041856d84ecf4d72::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit594ce5a1f7c6a19b509a9079bb4bb507::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit594ce5a1f7c6a19b509a9079bb4bb507::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit594ce5a1f7c6a19b509a9079bb4bb507::$classMap;
 
         }, null, ClassLoader::class);
     }
