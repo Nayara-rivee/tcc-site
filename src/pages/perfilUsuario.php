@@ -72,8 +72,7 @@ if (isset($_GET['upload_status']) && isset($_GET['upload_msg'])) {
 }
 // --- FIM NOVO ---
 
-$TotalGastoFormatado = number_format($TotalGasto, 2 , ',', '.');
-
+$TotalGastoFormatado = number_format($TotalGasto ?? 0, 2 , ',', '.');
 $dataCriacao = new DateTime($_SESSION['usuario']['data_criacao']);
 $meses = array(
     'January' => 'janeiro',

@@ -53,3 +53,12 @@
     width: 90%;
   }
 }
+
+/* Esconde o vídeo em telas de 768px de largura ou menores */
+@media (max-width: 768px) {
+    /* Seleciona o elemento que você quer esconder */
+    .header_hero .col-lg-6.col-md-6.col-sm-7 {
+        display: none !important;
+    }
+}
+

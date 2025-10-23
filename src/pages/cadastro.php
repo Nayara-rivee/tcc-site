@@ -102,7 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <?php if ($mensagem_class === 'alert-success'): ?>
-                                    <div class="mt-2"><a href='login.php' class="alert-link font-weight-bold">Clique aqui para fazer login.</a></div>
+                                    <div class="mt-2"><a href='login.php' class="alert-link font-weight-bold">Clique aqui para
+                                            fazer login.</a></div>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>
@@ -111,40 +112,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Nome completo</label>
-                                    <input type="text" class="form-control" name="nome" placeholder="Ex: Maria Silva" required>
+                                    <input type="text" class="form-control" name="nome" placeholder="Ex: Maria Silva"
+                                        required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>E-mail</label>
-                                    <input type="email" class="form-control" name="email" placeholder="exemplo@email.com" required>
+                                    <input type="email" class="form-control" name="email"
+                                        placeholder="exemplo@email.com" required>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>CPF</label>
-                                    <input type="text" class="form-control" name="cpf" placeholder="999.999.999-99" required>
+                                    <input type="text" class="form-control cpf-mask" name="cpf" placeholder="999.999.999-99"
+                                        required>
                                 </div>
-                                <div class="form-group col-md-6">
+                               <div class="form-group col-md-6">
                                     <label>RG (Opcional)</label>
-                                    <input type="text" class="form-control" name="rg" placeholder="99.999.999-9">
+                                    <input type="text" class="form-control rg-mask" name="rg" placeholder="99.999.999-9">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Senha</label>
-                                    <input type="password" class="form-control" name="senha" placeholder="password" required>
+                                    <input type="password" class="form-control" name="senha" placeholder="password"
+                                        required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Confirmar senha</label>
-                                    <input type="password" class="form-control" name="confirmar_senha" placeholder="password" required>
+                                    <input type="password" class="form-control" name="confirmar_senha"
+                                        placeholder="password" required>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Telefone / WhatsApp</label>
-                                    <input type="text" class="form-control" name="telefone" placeholder="(99) 99999-9999">
-                                </div>
+                                <label>Telefone / WhatsApp</label>
+                                <input type="text" class="form-control number-mask" name="telefone"
+                                    placeholder="(99) 99999-9999">
+                            </div>
                                 <div class="form-group col-md-6">
                                     <label>Data de Nascimento</label>
                                     <input type="date" class="form-control" name="data_nascimento">
@@ -177,9 +184,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script src="../js/masks.js"></script>
 </body>
 
 </html>

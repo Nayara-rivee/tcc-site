@@ -778,3 +778,233 @@
     .profile-container { width: 280px; height: 280px; }
 }
 
+
+    /* ======================================================== */
+/* 1. Estilos Básicos do Painel de Acessibilidade           */
+/* ======================================================== */
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #ff8c00; 
+    color: white;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 22223; /* Acima do whatsapp e vlibras */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.floating-btn:hover {
+    background-color: #e67e00;
+    transform: scale(1.05);
+}
+
+.panel {
+    position: fixed;
+    bottom: 80px; 
+    right: 20px;
+    width: 350px; /* Largura maior para os botões com texto */
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 22223;
+    border: 1px solid #ccc;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.panel-title {
+    font-size: 1.2rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.close-panel-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.control-section-title {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+    font-weight: 600;
+}
+
+.control-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 colunas */
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    color: #333;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.control-btn:hover {
+    background-color: #e6e6e6;
+    border-color: #ccc;
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: #ff8c00;
+}
+
+.control-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.control-btn.active i {
+    color: white;
+}
+
+.restore-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.restore-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ======================================================== */
+/* CLASSES DE FUNCIONALIDADES (acessibilidade) (Manipuladas pelo JS)      */
+/* ======================================================== */
+
+/* Alto Contraste: MANTENHA no body, pois afeta o fundo global */
+.high-contrast-mode {
+    background-color: black !important;
+    color: white !important;
+}
+.high-contrast-mode a, .high-contrast-mode button, .high-contrast-mode .text-primary {
+    color: yellow !important;
+}
+
+/* Intensidade de Cores (Escala de Cinza) - MOVIDO para o wrapper */
+.main-content-wrapper.monochrome-mode {
+    filter: grayscale(100%) !important;
+}
+
+/* Modos de Daltonismo - MOVIDO para o wrapper */
+.main-content-wrapper.colorblind-protanopia {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='protanopia'><feColorMatrix type='matrix' values='0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0'/></filter></svg>#protanopia") !important;
+}
+.main-content-wrapper.colorblind-deuteranopia {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='deuteranopia'><feColorMatrix type='matrix' values='0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0'/></filter></svg>#deuteranopia") !important;
+}
+.main-content-wrapper.colorblind-tritanopia {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='tritanopia'><feColorMatrix type='matrix' values='0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0'/></filter></svg>#tritanopia") !important;
+}
+/* Destaque de Links */
+.highlight-links-mode a {
+    /* Garante que o destaque apareça em qualquer link */
+    outline: 3px solid #00ff00 !important; /* Destaque verde brilhante */
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 5px #00ff00 !important;
+    border-radius: 3px !important;
+    padding: 2px 4px !important;
+}
+
+/* Letras Destacadas (Negrito) */
+/* Aplica negrito em todos os textos da página */
+.highlight-words-mode * {
+    font-weight: bold !important;
+    /* Força a aplicação em textos que não são títulos por padrão */
+    text-shadow: 0 0 0.5px currentColor; 
+}
+
+/* Esconder Imagens */
+/* Torna as imagens invisíveis */
+.hide-images-mode img {
+    visibility: hidden !important; 
+    /* Coloca um fundo para indicar o espaço vazio, se desejar */
+    background-color: #f0f0f0 !important;
+    border: 1px dashed #ccc !important;
+    min-height: 50px !important;
+    content: "Imagem Oculta" !important;
+}
+
+/* Destacar Cabeçalho (Header) */
+/* Usa o seletor mais genérico para cabeçalho */
+.highlight-header-mode header,
+.highlight-header-mode h1,
+.highlight-header-mode h2 {
+    outline: 4px dashed #ff0000 !important;
+    background-color: #fff0f0 !important;
+    padding: 5px !important;
+}
+
+/* Máscara de Leitura (Cursor como uma barra horizontal) */
+/* O cursor é aplicado ao body para funcionar em toda a área de conteúdo */
+.reading-mask-mode {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='30'><rect width='1000' height='30' style='fill:rgba(0,0,0,0.2);'/></svg>") 500 15, auto !important;
+}
+
+/* Pausar Animações (stop-animations-mode) - Não é uma classe visual, requer JS */
+/* O JavaScript deve desativar as propriedades CSS que causam animação/transição */
+
+/* Parar Sons (stop-sounds-mode) - Apenas informativo, depende de JS/API real */
+
+/* Lupa de Conteúdo (Magnifier) */
+.magnifier-mode {
+    /* O cursor pode ajudar o usuário a saber que está no modo lupa */
+    cursor: zoom-in !important;
+}
+
+/* Garante que o zoom seja suave e não corte o conteúdo */
+.magnifier-mode .main-content-wrapper * {
+    transition: transform 0.1s ease-out; /* Adiciona suavidade */
+    will-change: transform; /* Dica para o navegador otimizar */
+}
+
+

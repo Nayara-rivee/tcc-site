@@ -608,6 +608,8 @@ transition: 0.5s ease-in-out;
 
       .whatsapp-hover {
         transition: transform 0.3s ease;
+        position: relative;
+        top: -70px;
       }
 
       .whatsapp:hover .whatsapp-hover {

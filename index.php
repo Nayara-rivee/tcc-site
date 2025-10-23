@@ -42,17 +42,9 @@ if (estaLogado()) {
         type="image/x-icon"
         href="src/img/favicon/favicon.png" />
     <title>Aurora Ability IT - Tecnologia com Acessibilidade</title>
-
-    <!-- LINKS BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
     <!-- BOXICON  -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -66,8 +58,6 @@ if (estaLogado()) {
 
     <!-- CSS RESPONSIVO -->
     <link rel="stylesheet" href="src/css/css-pages/responsivo.css">
-
-    <!-- JS DE ACESSIBILIDADE -->
 
 
 
@@ -183,7 +173,7 @@ if (estaLogado()) {
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg">
-                                <a class="navbar-brand" href="index.html">
+                                <a class="navbar-brand" href="index.php">
                                     <img src="src/img/logo/logo.png" alt="Logo" />
                                 </a>
                                 <button
@@ -555,22 +545,10 @@ if (estaLogado()) {
                 </div>
             </div>
         </section>
-        <!-- ======== feature-section end ======== -->
-
-
-
-        <!-- Call To Action Section -->
-        <!-- <section class="section-cta cta">
-        <div class="section-cta-text">
-            <h2>Instale SiteHelper para ficar por dentro de seu projeto</h2>
-            <p>Para maior segurança e acompanhamento no seu projeto, baixe nosso aplicativo para não perder nenhuma novidade nele</p>
-            <button>Baixe Agora</button>
-        </div>
-    </section> -->
 
         <div id="empresa" class="header_hero">
             <ul id="redes" class="header_social d-none d-lg-block">
-                <li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
+                <li><a href="https://wa.me/5511974557734"><i class="bi bi-whatsapp"></i></a></li>
                 <li><a href="https://www.instagram.com/aurorability.it?igsh=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i></a></li>
             </ul>
             <div class="container">
@@ -693,7 +671,7 @@ if (estaLogado()) {
                                 <div class="project-overlay">
                                     <div class="overlay-content">
                                         <h5 class="mb-3">Ver Projeto</h5>
-                                        <a href="#" class="view-project-btn">
+                                        <a href="https://aprenderinvestindo.com.br/index.php" class="view-project-btn">
                                             <i class="bi bi-eye me-2"></i>Visualizar
                                         </a>
                                     </div>
@@ -734,7 +712,7 @@ if (estaLogado()) {
                         </p>
                         <div class="d-flex gap-3">
 
-                            <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.instagram.com/aurorability.it?igsh=NTc4MTIwNjQ2YQ==" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
 
                         </div>
                     </div>
@@ -772,7 +750,7 @@ if (estaLogado()) {
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bi bi-envelope-fill me-2"></i>
-                                <span>contato@auroraability.com</span>
+                                <span>aurorait12345@gmail.com</span>
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bi bi-clock-fill me-2"></i>
@@ -806,8 +784,7 @@ if (estaLogado()) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="src/js/mod.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="src/js/index.js"></script>
+    <script src="src/js/acessibilidade.js"></script>
 </body>
 
 </html>

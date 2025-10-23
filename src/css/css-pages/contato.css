@@ -1,66 +1,139 @@
+/* Variáveis para fácil manutenção */
+:root {
+    --color-dark-bg: #1a202c; /* Fundo Escuro Base */
+    --color-dark-center: #2e4478; /* Seu azul marinho para o centro do degradê */
+    --color-accent: #0ab8a1; /* Seu ciano para destaque */
+    --color-light-text: #e0e0e0; /* Branco para texto */
+    --color-white-details: white; /* Branco puro para detalhes */
+}
+
+/* Estilo do Corpo: Fundo em Degradê Radial Escuro */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #0ab8a1cb, #89d3ddc0);
+    background: radial-gradient(circle at center, var(--color-dark-center) 0%, var(--color-dark-bg) 80%, #000000 100%);
+    min-height: 100vh; /* Garante que o degradê cubra a tela inteira */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-light-text);
+    padding: 20px;
+    margin: 0;
 }
 
-form{
-  background: #89d3ddc0;
+/* Estilo do Container do Formulário com Blur */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco translúcido */
+    backdrop-filter: blur(10px); /* O efeito de blur! */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
+    border-radius: 20px; /* Bordas mais arredondadas */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), /* Sombra forte */
+                0 0 0 1px rgba(255, 255, 255, 0.1); /* Borda fina branca */
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
+    transition: all 0.4s ease-in-out;
 }
 
-.container h3{
-  color: #fff;
-  text-align: justify;
-}
-.container h2{
-  color: #fff;
-  text-align: justify;
+/* Efeito de Leve Elevação ao passar o mouse */
+.container:hover {
+    transform: translateY(-5px) scale(1.005);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.container .border{
-  border-radius: 40px;
+/* Estilo do Título Personalizado */
+.custom-heading {
+    color: var(--color-white-details); /* Branco para o título */
+    font-size: 3rem; /* Um pouco maior */
+    font-weight: 700;
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 15px; /* Espaço para o underline */
 }
 
-.container .form-label{
-  color: #fff;
+/* Underline animado para o título */
+.custom-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px; /* Largura inicial */
+    height: 4px;
+    background-color: var(--color-accent); /* Ciano vibrante */
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out;
 }
 
-.container .form-control{
-  opacity: 0.1;
+.custom-heading:hover::after {
+    width: 100px; /* Expande no hover */
 }
 
-.container .input-group-text{
-  opacity: 0.2;
+/* Estilo dos Labels */
+label {
+    color: var(--color-light-text); /* Branco leve para os labels */
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.1em;
 }
 
-.container .input-group-text i{
-  color: #000;
-  font-size: 20px;
+/* Estilo dos Campos de Input e Textarea */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.08); /* Fundo translúcido para os campos */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda branca suave */
+    border-radius: 10px;
+    padding: 12px 18px;
+    color: var(--color-white-details); /* Texto branco */
+    font-size: 1.05em;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
-.container button{
-  background:#0ab8a1cb;
-  color: #fff;
-  border: none;
-  transition: 0.5s ease-in-out;
+/* Placeholder branco suave */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
-.container button:hover{
-  background: #0ab8a170;
-  color: #fff;
-  border: 2px #fff  solid;
-  border-radius: 10px;
-  transition: 0.5s ease-in-out;
+
+/* Estilo ao Focar nos Campos (Destaque Ciano) */
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15); /* Fundo levemente mais visível ao focar */
+    border-color: var(--color-accent); /* Borda Ciano Vibrante */
+    box-shadow: 0 0 0 0.25rem rgba(10, 184, 161, 0.3); /* Sombra Ciano */
+    outline: none;
+}
+
+/* Estilo do Botão Personalizado */
+.custom-btn {
+    background-color: var(--color-accent); /* Fundo Ciano */
+    border: none;
+    border-radius: 50px; /* Botão arredondado */
+    padding: 14px 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 25px rgba(10, 184, 161, 0.5); /* Sombra mais forte */
+    width: 100%;
+    color: var(--color-white-details); /* Texto branco no botão */
+    font-size: 1.1em;
+}
+
+/* Efeito Hover e Ativo (Ao Clicar) do Botão */
+.custom-btn:hover {
+    background-color: #089c89; /* Ciano um pouco mais escuro */
+    box-shadow: 0 12px 30px rgba(10, 184, 161, 0.7);
+    transform: translateY(-3px); /* Efeito de elevação */
+}
+
+.custom-btn:active {
+    background-color: #067f6e;
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(10, 184, 161, 0.4);
 }
 
  .icon{
   color: #fff;
-  font-size: 50px
-}
-
-.contato h4,p{
-  color: #fff;
-}
-
-.contato a{
-  color: #ffffffc7;
+  font-size: 50px;
+  position: relative;
+  margin-top:-530px;
+  left: 100px;
 }
