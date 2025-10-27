@@ -473,9 +473,8 @@ if (estaLogado()) {
                                 </div>
                                 <div class="member-info">
                                     <h4 class="member-name">Nayara Silva</h4>
-                                    <span class="member-role">Desenvolvedora Front-end</span>
-                                    <p class="member-description">Mestre em transformar layouts complexos em interfaces de
-                                        usuário fluidas e interativas, com foco total em performance e acessibilidade.</p>
+                                    <span class="member-role">Desenvolvedora Full Stack</span>
+                                    <p class="member-description">Movida por desafios e pela criação de experiências digitais completas — do design à implementação. Une estética, performance e funcionalidade para transformar ideias em aplicações web dinâmicas, escaláveis e intuitivas.</p>
 
                                     <div class="skills-container">
                                         <div class="skill-item">
@@ -490,25 +489,25 @@ if (estaLogado()) {
                                         <div class="skill-item">
                                             <div class="skill-header">
                                                 <span class="skill-name">JavaScript</span>
+                                                <span class="skill-percentage">50%</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-progress" style="width: 50%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <div class="skill-header">
+                                                <span class="skill-name">Bootstrap & PHP</span>
                                                 <span class="skill-percentage">90%</span>
                                             </div>
                                             <div class="skill-bar">
                                                 <div class="skill-progress" style="width: 90%"></div>
                                             </div>
                                         </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Bootstrap</span>
-                                                <span class="skill-percentage">88%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 88%"></div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <a href="" class="social-link"><i class="fab fa-instagram"></i></a>
                                         <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                                     </div>

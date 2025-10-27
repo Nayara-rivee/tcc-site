@@ -391,12 +391,11 @@ if (estaLogado()) {
                                 <img src="src/img/card1.jpg" class="card-img-top" alt="Plano Básico"
                                     style="height: 200px; object-fit: cover;">
                                 <span
-                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$2,490</span>
+                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">R$200,00</span>
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Plano Básico</h5>
-                                <p class="card-text text-muted small">Ideal para quem está começando. Entregamos o essencial
-                                    com velocidade e simplicidade.</p>
+                                <h5 class="card-title fw-bold">Aurora Light</h5>
+                                <p class="card-text text-muted small">Site com até 4 páginas, design acessível e compatível com leitores de tela</p>
 
                                 <ul class="list-group list-group-flush mb-3 border-0">
                                     <li class="list-group-item border-0 ps-0 pb-2 small">
@@ -444,12 +443,11 @@ if (estaLogado()) {
                                 <img src="src/img/card2.jpeg" class="card-img-top" alt="Plano Intermediário"
                                     style="height: 200px; object-fit: cover;">
                                 <span
-                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$4,950</span>
+                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">R$450,00</span>
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Plano Intermediário</h5>
-                                <p class="card-text text-muted small">Para empresas que querem uma presença sólida e
-                                    funcional.</p>
+                                <h5 class="card-title fw-bold">Aurora Pro</h5>
+                                <p class="card-text text-muted small">Site com até 8 páginas, integração do Vlibras e tudo do light</p>
 
                                 <ul class="list-group list-group-flush mb-3 border-0">
                                     <li class="list-group-item border-0 ps-0 pb-2 small">
@@ -496,12 +494,11 @@ if (estaLogado()) {
                                 <img src="src/img/card2.webp" class="card-img-top" alt="Plano Avançado"
                                     style="height: 200px; object-fit: cover;">
                                 <span
-                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">$6,420</span>
+                                    class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">R$600,00</span>
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Plano Avançado</h5>
-                                <p class="card-text text-muted small">Para empresas que querem se destacar e crescer no
-                                    digital.</p>
+                                <h5 class="card-title fw-bold">Aurora Tota</h5>
+                                <p class="card-text text-muted small">Tudo do Pro+ páginas ilimitadas acessibilidade nível AAA e painel administrativo avançado</p>
 
                                 <ul class="list-group list-group-flush mb-3 border-0">
                                     <li class="list-group-item border-0 ps-0 pb-2 small">
