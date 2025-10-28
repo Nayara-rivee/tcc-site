@@ -497,7 +497,7 @@ if (estaLogado()) {
                                     class="position-absolute top-0 end-0 m-2 badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm">R$600,00</span>
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Aurora Tota</h5>
+                                <h5 class="card-title fw-bold">Aurora Total</h5>
                                 <p class="card-text text-muted small">Tudo do Pro+ páginas ilimitadas acessibilidade nível AAA e painel administrativo avançado</p>
 
                                 <ul class="list-group list-group-flush mb-3 border-0">
