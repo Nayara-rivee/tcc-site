@@ -617,22 +617,21 @@ transition: 0.5s ease-in-out;
       }
 
 /*===== sobre =====*/
-.header_hero_video {
+.header_hero_img {
   position: relative;
   width: 100%;
+  height:500px ;
   max-width: 100%;
-  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.header_hero_video video.video-fluid {
+.header_hero_img img{
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+  height:530px ;
+  margin-top: -30px;
+  overflow: hidden;
 }
-
 
 .header_hero {
   position: relative;
@@ -1241,3 +1240,4 @@ transition: 0.5s ease-in-out;
     transition: transform 0.1s ease-out; /* Adiciona suavidade */
     will-change: transform; /* Dica para o navegador otimizar */
 }
+

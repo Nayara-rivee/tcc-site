@@ -53,6 +53,9 @@ if (estaLogado()) {
 
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -83,9 +86,6 @@ if (estaLogado()) {
             <button class="control-btn" data-action="decrease-font" aria-label="Diminuir Tamanho da Fonte">
                 <i class="bi bi-fonts"></i><span>Tamanho de fonte (A-)</span>
             </button>
-            <button class="control-btn" data-action="toggle-highlight-words" aria-label="Letras Destacadas (Negrito)">
-                <i class="bi bi-type-bold"></i><span>Letras Destacadas</span>
-            </button>
             <button class="control-btn" data-action="increase-line-height" aria-label="Aumentar Espaço entre Linhas">
                 <i class="bi bi-text-height"></i><span>Espaço entre linhas (+)</span>
             </button>
@@ -100,41 +100,10 @@ if (estaLogado()) {
             </button>
         </div>
 
-        <!-- <h4 class="control-section-title">Navegação</h4>
-        <div class="control-group">
-            <button class="control-btn" data-action="toggle-reading-mode" aria-label="Modo de leitura (Foco em texto)">
-                <i class="bi bi-journal-text"></i><span>Modo de leitura</span>
-            </button>
-            <button class="control-btn" data-action="toggle-reading-mask" aria-label="Máscara de leitura">
-                <i class="bi bi-sliders2"></i><span>Máscara de leitura</span>
-            </button>
-            <button class="control-btn" data-action="toggle-highlight-links" aria-label="Destaque de links">
-                <i class="bi bi-link"></i><span>Destaque de links</span>
-            </button>
-            <button class="control-btn" data-action="toggle-magnifier" aria-label="Lupa de Conteúdo">
-                <i class="bi bi-zoom-in"></i><span>Lupa de Conteúdo</span>
-            </button>
-            <button class="control-btn" data-action="toggle-stop-animations" aria-label="Pausar Animações">
-                <i class="bi bi-pause-circle"></i><span>Pausar Animações</span>
-            </button>
-            <button class="control-btn" data-action="toggle-stop-sounds" aria-label="Parar Sons">
-                <i class="bi bi-volume-mute"></i><span>Parar Sons</span>
-            </button>
-            <button class="control-btn" data-action="toggle-hide-images" aria-label="Esconder Imagens">
-                <i class="bi bi-image-fill"></i><span>Esconder imagens</span>
-            </button>
-            <button class="control-btn" data-action="toggle-highlight-header" aria-label="Destacar Cabeçalho">
-                <i class="bi bi-type-underline"></i><span>Destacar Cabeçalho</span>
-            </button>
-        </div> -->
-
         <h4 class="control-section-title">Controle de cor</h4>
         <div class="control-group">
             <button class="control-btn" data-action="toggle-contrast" aria-label="Contraste de cores (Alto Contraste)">
                 <i class="bi bi-circle-half"></i><span>Contraste de cores</span>
-            </button>
-            <button class="control-btn" data-action="toggle-monochrome" aria-label="Intensidade de cores (Escala de Cinza)">
-                <i class="bi bi-circle-half"></i><span>Intensidade de cores</span>
             </button>
             <button class="control-btn" data-action="colorblind-protanopia" aria-label="Simulação de Protanopia">
                 <i class="bi bi-palette"></i><span>Protanopia (Vermelho)</span>
@@ -151,6 +120,12 @@ if (estaLogado()) {
             <i class="bi bi-arrow-clockwise me-1"></i>Restaurar recursos
         </button>
     </div>
+
+    <a href="https://wa.me/5511974557734" target="_blank" class="position-fixed bottom-0 end-0 m-3 whatsapp"
+        style="z-index: 22222;">
+        <img src="../img/logo/whatsapp.png" alt="WhatsApp" class="img-fluid rounded-circle shadow whatsapp-hover"
+            style="width: clamp(60px, 10vw, 70px); height: auto;">
+    </a>
 
     <div id="content-wrapper" class="main-content-wrapper">
 
@@ -186,11 +161,6 @@ if (estaLogado()) {
                                         <li class="nav-item">
                                             <a class="page-scroll" href="#servicos">Serviços</a>
                                         </li>
-
-                                        <li class="nav-item">
-                                            <a class="page-scroll" href="#redes">Redes</a>
-                                        </li>
-
                                         <li class="nav-item">
                                             <a href="faleconosco.php">Fale conosco</a>
                                         </li>
@@ -507,9 +477,9 @@ if (estaLogado()) {
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                        <a href="https://www.instagram.com/nayarainfotec?igsh=MWhrMmZ2eDB0YmhpZQ==" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="https://www.linkedin.com/in/nayara-silva-78381b343" class="social-link"><i class="fab fa-linkedin"></i></a> -->
+                                        <a href="https://github.com/Nayara-rivee" class="social-link"><i class="fab fa-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -530,37 +500,37 @@ if (estaLogado()) {
                                     <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Desenvolvimento Back-end (Node/PHP)</span>
-                                                <span class="skill-percentage">92%</span>
+                                                <span class="skill-name">HTML/CSS & Acessibilidade</span>
+                                                <span class="skill-percentage">95%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 92%"></div>
+                                                <div class="skill-progress" style="width: 95%"></div>
                                             </div>
                                         </div>
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Arquitetura de Banco de Dados</span>
-                                                <span class="skill-percentage">90%</span>
+                                                <span class="skill-name">JavaScript</span>
+                                                <span class="skill-percentage">80%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 90%"></div>
+                                                <div class="skill-progress" style="width: 80%"></div>
                                             </div>
                                         </div>
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Git e Github</span>
-                                                <span class="skill-percentage">85%</span>
+                                                <span class="skill-name">Bootstrap & PHP</span>
+                                                <span class="skill-percentage">80%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 85%"></div>
+                                                <div class="skill-progress" style="width: 80%"></div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                        <a href="https://www.instagram.com/nickolascremasco" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a> -->
+                                        <a href="https://github.com/NickolasSantosCremasco" class="social-link"><i class="fab fa-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -592,26 +562,17 @@ if (estaLogado()) {
                                     <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Pesquisa de Usuário (UX)</span>
-                                                <span class="skill-percentage">92%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 92%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Design de Interface (UI)</span>
-                                                <span class="skill-percentage">95%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 95%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Prototipagem Interativa</span>
+                                                <span class="skill-name">Canva</span>
                                                 <span class="skill-percentage">90%</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-progress" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <div class="skill-header">
+                                                <span class="skill-name">Criação de artes criativas</span>
+                                                <span class="skill-percentage">95%</span>
                                             </div>
                                             <div class="skill-bar">
                                                 <div class="skill-progress" style="width: 90%"></div>
@@ -620,8 +581,8 @@ if (estaLogado()) {
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/iz4_b3la_" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -639,7 +600,7 @@ if (estaLogado()) {
                                         marcas, criando ilustrações, logotipos e elementos gráficos únicos que contam uma
                                         história e cativam o público.</p>
 
-                                    <div class="skills-container">
+                                    <!-- <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
                                                 <span class="skill-name">Identidade Visual (Branding)</span>
@@ -659,12 +620,12 @@ if (estaLogado()) {
                                             </div>
                                         </div>
 
-                                    </div>
-
+                                    </div> -->
+                                    <!-- 
                                     <div class="member-social">
                                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                                         <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -696,16 +657,7 @@ if (estaLogado()) {
                                     <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Estratégia de SEO</span>
-                                                <span class="skill-percentage">95%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 95%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Marketing de Conteúdo</span>
+                                                <span class="skill-name">Canva</span>
                                                 <span class="skill-percentage">90%</span>
                                             </div>
                                             <div class="skill-bar">
@@ -714,19 +666,28 @@ if (estaLogado()) {
                                         </div>
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Análise de Métricas (Analytics)</span>
-                                                <span class="skill-percentage">88%</span>
+                                                <span class="skill-name">Google planilhas</span>
+                                                <span class="skill-percentage">70%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 88%"></div>
+                                                <div class="skill-progress" style="width: 70%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <div class="skill-header">
+                                                <span class="skill-name">Insight</span>
+                                                <span class="skill-percentage">80%</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-progress" style="width: 80%"></div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                                        <a href="https://www.instagram.com/alineaquino07" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -747,37 +708,28 @@ if (estaLogado()) {
                                     <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Gestão de Comunidades</span>
-                                                <span class="skill-percentage">95%</span>
+                                                <span class="skill-name">Canva</span>
+                                                <span class="skill-percentage">90%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 95%"></div>
+                                                <div class="skill-progress" style="width: 90%"></div>
                                             </div>
                                         </div>
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Copywriting para Redes Sociais</span>
-                                                <span class="skill-percentage">92%</span>
+                                                <span class="skill-name">Zapier(automatização de tarefas do canva e outros aplicativos)</span>
+                                                <span class="skill-percentage">85%</span>
                                             </div>
                                             <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 92%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Análise de Engajamento</span>
-                                                <span class="skill-percentage">88%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 88%"></div>
+                                                <div class="skill-progress" style="width: 85%"></div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                                        <a href="https://www.instagram.com/ichgokeki" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -809,7 +761,7 @@ if (estaLogado()) {
                                     <div class="skills-container">
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Documentação Técnica</span>
+                                                <span class="skill-name">Criação de diagramas com lucidchart</span>
                                                 <span class="skill-percentage">95%</span>
                                             </div>
                                             <div class="skill-bar">
@@ -818,27 +770,18 @@ if (estaLogado()) {
                                         </div>
                                         <div class="skill-item">
                                             <div class="skill-header">
-                                                <span class="skill-name">Teste de Qualidade</span>
+                                                <span class="skill-name">Documentação com Word</span>
                                                 <span class="skill-percentage">90%</span>
                                             </div>
                                             <div class="skill-bar">
                                                 <div class="skill-progress" style="width: 90%"></div>
                                             </div>
                                         </div>
-                                        <div class="skill-item">
-                                            <div class="skill-header">
-                                                <span class="skill-name">Metodologias Ágeis</span>
-                                                <span class="skill-percentage">92%</span>
-                                            </div>
-                                            <div class="skill-bar">
-                                                <div class="skill-progress" style="width: 92%"></div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="member-social">
-                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/lana99.s" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <!-- <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a> -->
                                     </div>
                                 </div>
                             </div>

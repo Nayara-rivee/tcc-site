@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const restoreBtn = document.getElementById('restore-btn');
     const controls = document.querySelectorAll('.control-btn');
 
-    // Mapeamento das classes que o painel controla
+    // Classes controladas pelo painel
     const colorFilterModes = ['monochrome-mode', 'colorblind-protanopia', 'colorblind-deuteranopia', 'colorblind-tritanopia'];
     const toggleModes = ['highlight-links-mode', 'reading-mask-mode', 'highlight-words-mode', 'hide-images-mode', 'highlight-header-mode'];
     const animationModes = ['stop-animations-mode', 'stop-sounds-mode'];
-    
-    // Elementos de texto que receberão as alterações de fonte/espaçamento
-    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, span, a, li, .card-text'); 
+
+    // Elementos de texto
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, span, a, li, label, input, select, button, .card-text, .form-control');
     const zoomableElements = Array.from(textElements);
 
-    // Estado do Painel
+    // Estado local (somente para esta página)
     let state = {
         fontSize: 1.0,
         lineHeight: 1.6,
@@ -28,49 +28,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const stepSize = 0.1;
 
     // ======================================================
-    // 🔹 FUNÇÕES DE UTILIDADE
+    // Funções de persistência
     // ======================================================
     function salvarEstado() {
-        localStorage.setItem('acessibilidadeState', JSON.stringify(state));
-        localStorage.setItem('acessibilidadeBodyClasses', JSON.stringify(Array.from(body.classList)));
-        localStorage.setItem('acessibilidadeWrapperClasses', JSON.stringify(contentWrapper ? Array.from(contentWrapper.classList) : []));
-        localStorage.setItem('painelAberto', !panel.classList.contains('hidden'));
+        try {
+            // Somente as configurações de cor e contraste são persistentes
+            const persistentClasses = {
+                bodyClasses: Array.from(body.classList).filter(cls =>
+                    cls.includes('colorblind-') || cls.includes('contrast')
+                ),
+                wrapperClasses: contentWrapper ? Array.from(contentWrapper.classList).filter(cls =>
+                    cls.includes('colorblind-') || cls.includes('monochrome-mode')
+                ) : []
+            };
+
+            localStorage.setItem('acessibilidadeCores', JSON.stringify(persistentClasses));
+            localStorage.setItem('painelAberto', !panel.classList.contains('hidden'));
+            localStorage.setItem('acessibilidadeInicializado', 'true');
+        } catch (err) {
+            console.warn('Erro ao salvar localStorage:', err);
+        }
     }
 
     function restaurarEstado() {
-        const savedState = localStorage.getItem('acessibilidadeState');
-        const savedBodyClasses = localStorage.getItem('acessibilidadeBodyClasses');
-        const savedWrapperClasses = localStorage.getItem('acessibilidadeWrapperClasses');
+        const savedColors = localStorage.getItem('acessibilidadeCores');
         const painelAberto = localStorage.getItem('painelAberto');
+        const inicializado = localStorage.getItem('acessibilidadeInicializado') === 'true';
 
-        if (savedState) {
-            state = JSON.parse(savedState);
-            applyTextStyles();
+        // Aplica apenas as configurações de cor
+        if (savedColors && inicializado) {
+            try {
+                const { bodyClasses, wrapperClasses } = JSON.parse(savedColors);
+                bodyClasses.forEach(cls => body.classList.add(cls));
+                if (contentWrapper) wrapperClasses.forEach(cls => contentWrapper.classList.add(cls));
+            } catch (err) {
+                console.warn('Erro ao restaurar cores:', err);
+            }
         }
 
-        if (savedBodyClasses) {
-            JSON.parse(savedBodyClasses).forEach(cls => body.classList.add(cls));
-        }
-
-        if (savedWrapperClasses && contentWrapper) {
-            JSON.parse(savedWrapperClasses).forEach(cls => contentWrapper.classList.add(cls));
-        }
-
-        if (painelAberto === 'true') {
+        if (painelAberto === 'true' && inicializado) {
             panel.classList.remove('hidden');
-            toggleBtn.setAttribute('aria-expanded', true);
+            if (toggleBtn) toggleBtn.setAttribute('aria-expanded', true);
         }
 
-        // Atualiza visual dos botões
         controls.forEach(button => {
             const action = button.getAttribute('data-action');
             const className = action.replace('toggle-', '').replace('colorblind-', 'colorblind-');
             if (body.classList.contains(className) || (contentWrapper && contentWrapper.classList.contains(className))) {
                 button.classList.add('active');
+            } else {
+                button.classList.remove('active');
             }
         });
     }
 
+    // ======================================================
+    // Helpers de estilo
+    // ======================================================
     function updateControlState(action, isActive) {
         const button = document.querySelector(`.control-btn[data-action="${action}"]`);
         if (button) button.classList.toggle('active', isActive);
@@ -82,12 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
             colorFilterModes.forEach(cls => contentWrapper.classList.remove(cls));
         }
         controls.forEach(btn => {
-            if (btn.getAttribute('data-action').startsWith('colorblind-') || btn.getAttribute('data-action') === 'toggle-monochrome') {
+            const act = btn.getAttribute('data-action');
+            if (act && (act.startsWith('colorblind-') || act === 'toggle-monochrome')) {
                 btn.classList.remove('active');
             }
         });
     }
-    
+
     function applyTextStyles() {
         textElements.forEach(el => {
             el.style.setProperty('font-size', `${state.fontSize}rem`, 'important');
@@ -97,21 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ======================================================
-    // 🔹 MODO DE LEITURA
+    // Funções específicas
     // ======================================================
     function toggleReadingMode() {
         if (!state.readingModeActive) {
             const overlay = document.createElement('div');
             overlay.id = 'reading-mode-overlay';
             overlay.classList.add('reading-mode-overlay');
-            
+
             const content = document.createElement('div');
             content.classList.add('reading-mode-content');
             content.innerHTML = contentWrapper ? contentWrapper.innerHTML : '<p>Conteúdo principal não encontrado.</p>';
 
             overlay.appendChild(content);
             body.appendChild(overlay);
-            
+
             overlay.addEventListener('click', (e) => {
                 if (e.target.id === 'reading-mode-overlay') toggleReadingMode();
             });
@@ -126,18 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateControlState('toggle-reading-mode', state.readingModeActive);
     }
-    
-    // ======================================================
-    // 🔹 MODO LUPA
-    // ======================================================
+
     function handleMagnifierMode(e) {
         if (!state.magnifierActive) return;
         const target = e.target;
         zoomableElements.forEach(el => {
-            if (el.style.getPropertyValue('transform') === 'scale(1.5)') {
-                el.style.removeProperty('transform');
-                el.style.removeProperty('transform-origin');
-            }
+            el.style.removeProperty('transform');
+            el.style.removeProperty('transform-origin');
         });
         if (zoomableElements.includes(target)) {
             target.style.setProperty('transform', 'scale(1.5)', 'important');
@@ -162,25 +172,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ======================================================
-    // 🔹 LISTENERS DO PAINEL
+    // Listeners
     // ======================================================
-    toggleBtn.addEventListener('click', () => {
-        const isHidden = panel.classList.toggle('hidden');
-        toggleBtn.setAttribute('aria-expanded', !isHidden);
-        salvarEstado();
-    });
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = panel.classList.toggle('hidden');
+            toggleBtn.setAttribute('aria-expanded', !isHidden);
+            salvarEstado();
+        });
+    }
 
-    closePanelBtn.addEventListener('click', () => {
-        panel.classList.add('hidden');
-        toggleBtn.setAttribute('aria-expanded', false);
-        salvarEstado();
-    });
+    if (closePanelBtn) {
+        closePanelBtn.addEventListener('click', () => {
+            panel.classList.add('hidden');
+            if (toggleBtn) toggleBtn.setAttribute('aria-expanded', false);
+            salvarEstado();
+        });
+    }
 
     controls.forEach(button => {
         button.addEventListener('click', () => {
             const action = button.getAttribute('data-action');
             const className = action.replace('toggle-', '').replace('colorblind-', 'colorblind-');
-            
+
             if (colorFilterModes.includes(className) || action === 'toggle-contrast') {
                 if (action === 'toggle-contrast') {
                     state.contrastActive = !state.contrastActive;
@@ -192,69 +206,87 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!wasActive) {
                         contentWrapper.classList.add(className);
                         updateControlState(action, true);
-                    } else updateControlState(action, false);
+                    } else {
+                        updateControlState(action, false);
+                    }
                 }
-            } 
+                salvarEstado();
+            }
             else if (toggleModes.includes(className) || animationModes.includes(className)) {
                 body.classList.toggle(className);
                 updateControlState(action, body.classList.contains(className));
                 if (action === 'toggle-reading-mode') toggleReadingMode();
                 if (action === 'toggle-magnifier') toggleMagnifier();
-            } 
+            }
             else {
                 switch (action) {
-                    case 'increase-font': if (state.fontSize < 2.0) state.fontSize += stepSize; break;
-                    case 'decrease-font': if (state.fontSize > 0.7) state.fontSize -= stepSize; break;
-                    case 'increase-line-height': if (state.lineHeight < 3.0) state.lineHeight += stepSize; break;
-                    case 'decrease-line-height': if (state.lineHeight > 1.0) state.lineHeight -= stepSize; break;
-                    case 'increase-letter-spacing': if (state.letterSpacing < 5) state.letterSpacing += 1; break;
-                    case 'decrease-letter-spacing': if (state.letterSpacing > 0) state.letterSpacing -= 1; break;
-                    default: return;
+                    case 'increase-font':
+                        if (state.fontSize < 2.0) state.fontSize += stepSize;
+                        break;
+                    case 'decrease-font':
+                        if (state.fontSize > 0.7) state.fontSize -= stepSize;
+                        break;
+                    case 'increase-line-height':
+                        if (state.lineHeight < 3.0) state.lineHeight += stepSize;
+                        break;
+                    case 'decrease-line-height':
+                        if (state.lineHeight > 1.0) state.lineHeight -= stepSize;
+                        break;
+                    case 'increase-letter-spacing':
+                        if (state.letterSpacing < 5) state.letterSpacing += 1;
+                        break;
+                    case 'decrease-letter-spacing':
+                        if (state.letterSpacing > 0) state.letterSpacing -= 1;
+                        break;
+                    default:
+                        return;
                 }
-                applyTextStyles();
-                salvarEstado();
+                applyTextStyles(); // local, não salvo
             }
         });
     });
 
-    // ======================================================
-    // 🔹 RESTAURAR TUDO
-    // ======================================================
-    restoreBtn.addEventListener('click', () => {
-        body.classList.remove('high-contrast-mode');
-        state.contrastActive = false;
-        removeAllColorFilters();
-        toggleModes.forEach(cls => body.classList.remove(cls));
-        animationModes.forEach(cls => body.classList.remove(cls));
-        controls.forEach(btn => btn.classList.remove('active'));
+    if (restoreBtn) {
+        restoreBtn.addEventListener('click', () => {
+            body.classList.remove('high-contrast-mode');
+            removeAllColorFilters();
+            toggleModes.forEach(cls => body.classList.remove(cls));
+            animationModes.forEach(cls => body.classList.remove(cls));
+            controls.forEach(btn => btn.classList.remove('active'));
 
-        if (state.readingModeActive) toggleReadingMode();
-        if (state.magnifierActive) toggleMagnifier(); 
+            if (state.readingModeActive) toggleReadingMode();
+            if (state.magnifierActive) toggleMagnifier();
 
-        state = {
-            fontSize: 1.0,
-            lineHeight: 1.6,
-            letterSpacing: 0,
-            magnifierActive: false,
-            readingModeActive: false,
-            contrastActive: false,
-        };
-        
-        textElements.forEach(el => {
-            el.style.removeProperty('font-size'); 
-            el.style.removeProperty('line-height');
-            el.style.removeProperty('letter-spacing');
+            state = {
+                fontSize: 1.0,
+                lineHeight: 1.6,
+                letterSpacing: 0,
+                magnifierActive: false,
+                readingModeActive: false,
+                contrastActive: false,
+            };
+
+            textElements.forEach(el => {
+                el.style.removeProperty('font-size');
+                el.style.removeProperty('line-height');
+                el.style.removeProperty('letter-spacing');
+            });
+
+            try {
+                localStorage.removeItem('acessibilidadeCores');
+                localStorage.removeItem('painelAberto');
+            } catch (err) {
+                console.warn('Erro ao limpar localStorage:', err);
+            }
+
+            alert("Recursos de acessibilidade restaurados!");
+            panel.classList.add('hidden');
+            if (toggleBtn) toggleBtn.setAttribute('aria-expanded', false);
         });
-
-        localStorage.clear();
-        alert("Recursos de acessibilidade restaurados!");
-        panel.classList.add('hidden');
-        toggleBtn.setAttribute('aria-expanded', false);
-    });
+    }
 
     // ======================================================
-    // 🔹 INICIALIZAÇÃO
+    // Inicialização
     // ======================================================
     restaurarEstado();
-    applyTextStyles();
 });

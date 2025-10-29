@@ -90,9 +90,6 @@ if (estaLogado()) {
             <button class="control-btn" data-action="decrease-font" aria-label="Diminuir Tamanho da Fonte">
                 <i class="bi bi-fonts"></i><span>Tamanho de fonte (A-)</span>
             </button>
-            <button class="control-btn" data-action="toggle-highlight-words" aria-label="Letras Destacadas (Negrito)">
-                <i class="bi bi-type-bold"></i><span>Letras Destacadas</span>
-            </button>
             <button class="control-btn" data-action="increase-line-height" aria-label="Aumentar Espaço entre Linhas">
                 <i class="bi bi-text-height"></i><span>Espaço entre linhas (+)</span>
             </button>
@@ -107,41 +104,10 @@ if (estaLogado()) {
             </button>
         </div>
 
-        <!-- <h4 class="control-section-title">Navegação</h4>
-        <div class="control-group">
-            <button class="control-btn" data-action="toggle-reading-mode" aria-label="Modo de leitura (Foco em texto)">
-                <i class="bi bi-journal-text"></i><span>Modo de leitura</span>
-            </button>
-            <button class="control-btn" data-action="toggle-reading-mask" aria-label="Máscara de leitura">
-                <i class="bi bi-sliders2"></i><span>Máscara de leitura</span>
-            </button>
-            <button class="control-btn" data-action="toggle-highlight-links" aria-label="Destaque de links">
-                <i class="bi bi-link"></i><span>Destaque de links</span>
-            </button>
-            <button class="control-btn" data-action="toggle-magnifier" aria-label="Lupa de Conteúdo">
-                <i class="bi bi-zoom-in"></i><span>Lupa de Conteúdo</span>
-            </button>
-            <button class="control-btn" data-action="toggle-stop-animations" aria-label="Pausar Animações">
-                <i class="bi bi-pause-circle"></i><span>Pausar Animações</span>
-            </button>
-            <button class="control-btn" data-action="toggle-stop-sounds" aria-label="Parar Sons">
-                <i class="bi bi-volume-mute"></i><span>Parar Sons</span>
-            </button>
-            <button class="control-btn" data-action="toggle-hide-images" aria-label="Esconder Imagens">
-                <i class="bi bi-image-fill"></i><span>Esconder imagens</span>
-            </button>
-            <button class="control-btn" data-action="toggle-highlight-header" aria-label="Destacar Cabeçalho">
-                <i class="bi bi-type-underline"></i><span>Destacar Cabeçalho</span>
-            </button>
-        </div> -->
-
         <h4 class="control-section-title">Controle de cor</h4>
         <div class="control-group">
             <button class="control-btn" data-action="toggle-contrast" aria-label="Contraste de cores (Alto Contraste)">
                 <i class="bi bi-circle-half"></i><span>Contraste de cores</span>
-            </button>
-            <button class="control-btn" data-action="toggle-monochrome" aria-label="Intensidade de cores (Escala de Cinza)">
-                <i class="bi bi-circle-half"></i><span>Intensidade de cores</span>
             </button>
             <button class="control-btn" data-action="colorblind-protanopia" aria-label="Simulação de Protanopia">
                 <i class="bi bi-palette"></i><span>Protanopia (Vermelho)</span>
@@ -199,11 +165,6 @@ if (estaLogado()) {
                                         <li class="nav-item">
                                             <a class="page-scroll" href="#servicos">Serviços</a>
                                         </li>
-
-                                        <li class="nav-item">
-                                            <a class="page-scroll" href="#redes">Redes</a>
-                                        </li>
-
                                         <li class="nav-item">
                                             <a href="src/pages/faleconosco.php">Fale conosco</a>
                                         </li>
@@ -568,11 +529,8 @@ if (estaLogado()) {
                     </div>
                     <!-- COLUNA DO VÍDEO -->
                     <div class="col-lg-6 col-md-6 col-sm-7">
-                        <div class="header_hero_video mt-50 wow fadeInRightBig" data-wow-duration="1.3s" data-wow-delay="1.8s">
-                            <video autoplay muted loop playsinline class="video-fluid">
-                                <source src="src/video/hero.mp4" type="video/mp4">
-                                Seu navegador não suporta vídeo em HTML5.
-                            </video>
+                        <div class="header_hero_img mt-50 wow fadeInRightBig" data-wow-duration="1.3s" data-wow-delay="1.8s">
+                            <img src="src/img/pensativo.png" alt="">
                         </div>
                     </div>
                 </div>

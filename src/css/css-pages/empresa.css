@@ -779,6 +779,19 @@
 }
 
 
+      /* whatsApp icon */
+
+      .whatsapp-hover {
+        transition: transform 0.3s ease;
+        position: relative;
+        top: -70px;
+      }
+
+      .whatsapp:hover .whatsapp-hover {
+        transform: scale(1.1);
+      }
+
+
     /* ======================================================== */
 /* 1. Estilos Básicos do Painel de Acessibilidade           */
 /* ======================================================== */

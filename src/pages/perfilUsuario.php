@@ -72,7 +72,7 @@ if (isset($_GET['upload_status']) && isset($_GET['upload_msg'])) {
 }
 // --- FIM NOVO ---
 
-$TotalGastoFormatado = number_format($TotalGasto ?? 0, 2 , ',', '.');
+$TotalGastoFormatado = number_format($TotalGasto ?? 0, 2, ',', '.');
 $dataCriacao = new DateTime($_SESSION['usuario']['data_criacao']);
 $meses = array(
     'January' => 'janeiro',
@@ -92,7 +92,8 @@ $meses = array(
 $mes = $dataCriacao->format('F');
 $mes_pt = $meses[$mes];
 
-function formatarTempoPassado($data_criacao) {
+function formatarTempoPassado($data_criacao)
+{
     $agora = new DateTime();
     $data_atividade = new DateTime($data_criacao);
     $intervalo = $agora->diff($data_atividade);
@@ -123,197 +124,270 @@ function formatarTempoPassado($data_criacao) {
     <link rel="stylesheet" href="../css/css-pages/perfilUsuario.css">
     <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <div class="floating-elements">
-        <div class="floating-element" style="left: 10%; width: 60px; height: 60px; animation-delay: -2s;"></div>
-        <div class="floating-element" style="left: 70%; width: 80px; height: 80px; animation-delay: -8s;"></div>
-        <div class="floating-element" style="left: 40%; width: 40px; height: 40px; animation-delay: -15s;"></div>
+    <!-- libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
+    <!-- end libras -->
+    <button id="accessibility-toggle-btn" class="floating-btn" aria-expanded="false" aria-controls="accessibility-panel" aria-label="Abrir Menu de Acessibilidade">
+        <i class="bi bi-universal-access-circle"></i> Acessibilidade
+    </button>
 
-    <div class="container">
-        <div class="header">
-            <a href="../../index.php" class="btn-voltar">
-                <i class="fas fa-arrow-left"></i> Voltar
-            </a>
+    <div id="accessibility-panel" class="panel hidden" role="dialog" aria-modal="false" aria-labelledby="panel-title">
+        <h3 id="panel-title" class="panel-title">Menu de Acessibilidade</h3>
+        <button id="close-panel-btn" class="close-panel-btn" aria-label="Fechar Painel">
+            <i class="bi bi-x-lg"></i>
+        </button>
 
-            <?php if (!empty($upload_mensagem)): ?>
-                <div class="upload-alert <?= $upload_class; ?>">
-                    <?= $upload_mensagem; ?>
-                </div>
-            <?php endif; ?>
-            <div class="profile-section">
-
-                <form id="form-upload-foto" action="../database/upload_foto_perfil.php" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="foto_perfil" id="foto-perfil-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
-                    
-                    <label for="foto-perfil-input" class="profile-avatar profile-clickable" title="Clique para trocar a foto de perfil">
-                        <?php if($caminhoFoto):?>
-                            <img src="../../<?= htmlspecialchars($caminhoFoto);?>" alt="Foto de Perfil">
-                        <?php else:?>
-                            <?= htmlspecialchars(strtoupper(substr($_SESSION['usuario']['nome'] ?? '' , 0, 2)));?>
-                        <?php endif;?>
-                    </label>
-                </form>
-                <div class="profile-info">
-                    <h1><?= htmlspecialchars($_SESSION['usuario']['nome'])?></h1>
-                    <p><?= htmlspecialchars($_SESSION['usuario']['email'])?></p>
-                    <p><?= htmlspecialchars($_SESSION['usuario']['numero'])?></p>
-                    <p> Membro desde:
-                        <?= 
-                            $dataCriacao->format('d \d\e ') . $mes_pt . $dataCriacao->format(' \d\e Y')
-                        ?>
-                    </p>
-                    <a class="btn-sair" href="../database/logout.php">
-                        <i class="fas fa-sign-out-alt me-2"></i> Sair da Conta
-                    </a>
-                </div>
-            </div>
-
-            <div class="profile-stats">
-                <div class="stat-card">
-                    <span class="stat-number"><?= $totalServicos ?></span>
-                    <span class="stat-label">Projetos Totais</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">
-                        <?=$TotalServicosEmAndamento?>
-                    </span>
-                    <span class="stat-label">Em Andamento</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number"><?= $TotalServicosConcluidos?></span>
-                    <span class="stat-label">Concluídos</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">R$
-                        <?=$TotalGastoFormatado?>
-                    </span>
-                    <span class="stat-label">Investimento Total</span>
-                </div>
-            </div>
+        <h4 class="control-section-title">Controle de Fonte</h4>
+        <div class="control-group">
+            <button class="control-btn" data-action="increase-font" aria-label="Aumentar Tamanho da Fonte">
+                <i class="bi bi-fonts"></i><span>Tamanho de fonte (A+)</span>
+            </button>
+            <button class="control-btn" data-action="decrease-font" aria-label="Diminuir Tamanho da Fonte">
+                <i class="bi bi-fonts"></i><span>Tamanho de fonte (A-)</span>
+            </button>
+            <button class="control-btn" data-action="increase-line-height" aria-label="Aumentar Espaço entre Linhas">
+                <i class="bi bi-text-height"></i><span>Espaço entre linhas (+)</span>
+            </button>
+            <button class="control-btn" data-action="decrease-line-height" aria-label="Diminuir Espaço entre Linhas">
+                <i class="bi bi-text-height"></i><span>Espaço entre linhas (-)</span>
+            </button>
+            <button class="control-btn" data-action="increase-letter-spacing" aria-label="Aumentar Espaço entre Letras">
+                <i class="bi bi-text-spacing"></i><span>Espaço entre letras (+)</span>
+            </button>
+            <button class="control-btn" data-action="decrease-letter-spacing" aria-label="Diminuir Espaço entre Letras">
+                <i class="bi bi-text-spacing"></i><span>Espaço entre letras (-)</span>
+            </button>
         </div>
 
-        <div class="main-content">
-            <div class="services-section">
-                <h2 class="section-title">Meus Serviços</h2>
+        <h4 class="control-section-title">Controle de cor</h4>
+        <div class="control-group">
+            <button class="control-btn" data-action="toggle-contrast" aria-label="Contraste de cores (Alto Contraste)">
+                <i class="bi bi-circle-half"></i><span>Contraste de cores</span>
+            </button>
+            <button class="control-btn" data-action="colorblind-protanopia" aria-label="Simulação de Protanopia">
+                <i class="bi bi-palette"></i><span>Protanopia (Vermelho)</span>
+            </button>
+            <button class="control-btn" data-action="colorblind-deuteranopia" aria-label="Simulação de Deuteranopia">
+                <i class="bi bi-palette"></i><span>Deuteranopia (Verde)</span>
+            </button>
+            <button class="control-btn" data-action="colorblind-tritanopia" aria-label="Simulação de Tritanopia">
+                <i class="bi bi-palette"></i><span>Tritanopia (Azul)</span>
+            </button>
+        </div>
 
-                <div class="services-grid">
-                    <?php foreach ($meusServicos as $servico):?>
-                    <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-title">
-                                <div class="service-icon">🚀</div>
-                                <span><?= $servico['nome_tipo']?></span>
-                            </div>
+        <button id="restore-btn" class="restore-btn" aria-label="Restaurar todas as configurações de acessibilidade">
+            <i class="bi bi-arrow-clockwise me-1"></i>Restaurar recursos
+        </button>
+    </div>
 
-                            <?php if($servico['status'] === 'Em Andamento'):?>
-                            <span class="status-badge status-in-progress">
-                                <?= $servico['status']?>
-                            </span>
-                            <?php elseif($servico['status'] ==='Concluido'):?>
-                            <span class="status-badge status-completed">
-                                <?= $servico['status']?>
-                            </span>
-                            <?php endif?>
+    <a href="https://wa.me/5511974557734" target="_blank" class="position-fixed bottom-0 end-0 m-3 whatsapp"
+        style="z-index: 22222;">
+        <img src="../img/logo/whatsapp.png" alt="WhatsApp" class="img-fluid rounded-circle shadow whatsapp-hover"
+            style="width: clamp(60px, 10vw, 70px); height: auto;">
+    </a>
 
 
-                        </div>
-                        <div class="service-details">
-                            <?php
-                                $comentariosDoServicoEncontrados = false;
-                                $comentariosParaEsteServico = array_filter($comentariosDoServico, function($c) use ($servico) {
-                                    return $c['servico_id'] === $servico['id'];
-                                });
+    <div id="content-wrapper" class="main-content-wrapper">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; width: 60px; height: 60px; animation-delay: -2s;"></div>
+            <div class="floating-element" style="left: 70%; width: 80px; height: 80px; animation-delay: -8s;"></div>
+            <div class="floating-element" style="left: 40%; width: 40px; height: 40px; animation-delay: -15s;"></div>
+        </div>
 
-                                if (!empty($comentariosParaEsteServico)):
-                                    $comentariosDoServicoEncontrados = true;
-                                        
-                                    $primeiroComentario = array_shift($comentariosParaEsteServico);
-                                ?>
-                            <div class="comentario">
-                                <strong>Comentário feito por:
-                                    <?= htmlspecialchars($primeiroComentario['nome_autor']) ?></strong>
-                                <p><?= nl2br(htmlspecialchars($primeiroComentario['titulo_comentario'])) ?></p>
-                                <p><?= nl2br(htmlspecialchars($primeiroComentario['comentario'])) ?></p>
-                                <small>Criado em:
-                                    <?= formatarTempoPassado($primeiroComentario['data_criacao']) ?></small>
-                            </div>
-                            <hr>
+        <div class="container">
+            <div class="header">
+                <a href="../../index.php" class="btn-voltar">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
 
-                            <?php if (!empty($comentariosParaEsteServico)): ?>
-                            <div id="comentarios-adicionais-<?= $servico['id'] ?>" class="comentarios-adicionais">
-                                <?php foreach ($comentariosParaEsteServico as $comentario): ?>
-                                <div class="comentario comentario-oculto">
-                                    <strong>Comentário feito por:
-                                        <?= htmlspecialchars($comentario['nome_autor']) ?></strong>
-                                    <p><?= nl2br(htmlspecialchars($comentario['titulo_comentario'])) ?></p>
-                                    <p><?= nl2br(htmlspecialchars($comentario['comentario'])) ?></p>
-                                    <small>Criado em:
-                                        <?= formatarTempoPassado($comentario['data_criacao']) ?></small>
-                                </div>
-                                <hr>
-                                <?php endforeach; ?>
-                            </div>
-                            <button class="btn btn-sm btn-outline-secondary btn-ver-mais"
-                                data-servico-id="<?= $servico['id'] ?>">Ver todos os comentários</button>
-                            <?php endif; ?>
-                            <?php else: ?>
-                            <p>Nenhum comentário para este serviço.</p>
-                            <?php endif; ?>
-                        </div>
-                        <div class="service-progress">
-                            <div class="progress-label">
-                                <span>Progresso: 75%</span>
-                                <span>Entrega: <?= $servico['data_termino']?></span>
-
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <button class="btn btn-primary">📋 Ver Detalhes</button>
-
-                        </div>
+                <?php if (!empty($upload_mensagem)): ?>
+                    <div class="upload-alert <?= $upload_class; ?>">
+                        <?= $upload_mensagem; ?>
                     </div>
-                    <?php endforeach?>
+                <?php endif; ?>
+                <div class="profile-section">
 
+                    <form id="form-upload-foto" action="../database/upload_foto_perfil.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="foto_perfil" id="foto-perfil-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+
+                        <label for="foto-perfil-input" class="profile-avatar profile-clickable" title="Clique para trocar a foto de perfil">
+                            <?php if ($caminhoFoto): ?>
+                                <img src="../../<?= htmlspecialchars($caminhoFoto); ?>" alt="Foto de Perfil">
+                            <?php else: ?>
+                                <?= htmlspecialchars(strtoupper(substr($_SESSION['usuario']['nome'] ?? '', 0, 2))); ?>
+                            <?php endif; ?>
+                        </label>
+                    </form>
+                    <div class="profile-info">
+                        <h1><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></h1>
+                        <p><?= htmlspecialchars($_SESSION['usuario']['email']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['usuario']['numero']) ?></p>
+                        <p> Membro desde:
+                            <?=
+                            $dataCriacao->format('d \d\e ') . $mes_pt . $dataCriacao->format(' \d\e Y')
+                            ?>
+                        </p>
+                        <a class="btn-sair" href="../database/logout.php">
+                            <i class="fas fa-sign-out-alt me-2"></i> Sair da Conta
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <span class="stat-number"><?= $totalServicos ?></span>
+                        <span class="stat-label">Projetos Totais</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">
+                            <?= $TotalServicosEmAndamento ?>
+                        </span>
+                        <span class="stat-label">Em Andamento</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number"><?= $TotalServicosConcluidos ?></span>
+                        <span class="stat-label">Concluídos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">R$
+                            <?= $TotalGastoFormatado ?>
+                        </span>
+                        <span class="stat-label">Investimento Total</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="sidebar">
-                <div class="sidebar-card">
-                    <h3 class="section-title">Ações Rápidas</h3>
-                    <div class="quick-actions">
-                        <a href="../../src/pages/faleconosco.php" class="action-btn">
-                            <span>➕</span> Novo Projeto
-                        </a>
+            <div class="main-content">
+                <div class="services-section">
+                    <h2 class="section-title">Meus Serviços</h2>
 
-                        <a href="../database/exportar_servicos.php" class="action-btn"
-                            style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                            <span>📊</span> Exportar CSV
-                        </a>
+                    <div class="services-grid">
+                        <?php foreach ($meusServicos as $servico): ?>
+                            <div class="service-card">
+                                <div class="service-header">
+                                    <div class="service-title">
+                                        <div class="service-icon">🚀</div>
+                                        <span><?= $servico['nome_tipo'] ?></span>
+                                    </div>
+
+                                    <?php if ($servico['status'] === 'Em Andamento'): ?>
+                                        <span class="status-badge status-in-progress">
+                                            <?= $servico['status'] ?>
+                                        </span>
+                                    <?php elseif ($servico['status'] === 'Concluido'): ?>
+                                        <span class="status-badge status-completed">
+                                            <?= $servico['status'] ?>
+                                        </span>
+                                    <?php endif ?>
+
+
+                                </div>
+                                <div class="service-details">
+                                    <?php
+                                    $comentariosDoServicoEncontrados = false;
+                                    $comentariosParaEsteServico = array_filter($comentariosDoServico, function ($c) use ($servico) {
+                                        return $c['servico_id'] === $servico['id'];
+                                    });
+
+                                    if (!empty($comentariosParaEsteServico)):
+                                        $comentariosDoServicoEncontrados = true;
+
+                                        $primeiroComentario = array_shift($comentariosParaEsteServico);
+                                    ?>
+                                        <div class="comentario">
+                                            <strong>Comentário feito por:
+                                                <?= htmlspecialchars($primeiroComentario['nome_autor']) ?></strong>
+                                            <p><?= nl2br(htmlspecialchars($primeiroComentario['titulo_comentario'])) ?></p>
+                                            <p><?= nl2br(htmlspecialchars($primeiroComentario['comentario'])) ?></p>
+                                            <small>Criado em:
+                                                <?= formatarTempoPassado($primeiroComentario['data_criacao']) ?></small>
+                                        </div>
+                                        <hr>
+
+                                        <?php if (!empty($comentariosParaEsteServico)): ?>
+                                            <div id="comentarios-adicionais-<?= $servico['id'] ?>" class="comentarios-adicionais">
+                                                <?php foreach ($comentariosParaEsteServico as $comentario): ?>
+                                                    <div class="comentario comentario-oculto">
+                                                        <strong>Comentário feito por:
+                                                            <?= htmlspecialchars($comentario['nome_autor']) ?></strong>
+                                                        <p><?= nl2br(htmlspecialchars($comentario['titulo_comentario'])) ?></p>
+                                                        <p><?= nl2br(htmlspecialchars($comentario['comentario'])) ?></p>
+                                                        <small>Criado em:
+                                                            <?= formatarTempoPassado($comentario['data_criacao']) ?></small>
+                                                    </div>
+                                                    <hr>
+                                                <?php endforeach; ?>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary btn-ver-mais"
+                                                data-servico-id="<?= $servico['id'] ?>">Ver todos os comentários</button>
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <p>Nenhum comentário para este serviço.</p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="service-progress">
+                                    <div class="progress-label">
+                                        <span>Progresso: 75%</span>
+                                        <span>Entrega: <?= $servico['data_termino'] ?></span>
+
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="service-actions">
+                                    <button class="btn btn-primary">📋 Ver Detalhes</button>
+
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+
                     </div>
                 </div>
 
-                <div class="sidebar-card">
-                    <h3 class="section-title">Atividades Recentes</h3>
-                    <div class="recent-activity">
-                        <?php foreach($titulosRecentes as $titulo):?>
-                        <div class="activity-item">
-                            <div class="activity-icon">✅</div>
-                            <div class="activity-content">
-                                <div class="activity-title"><?= htmlspecialchars($titulo['titulo_comentario']) ?>
-                                </div>
-                                <div class="activity-time"><?= formatarTempoPassado($titulo['data_criacao']) ?>
-                                </div>
-                            </div>
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="section-title">Ações Rápidas</h3>
+                        <div class="quick-actions">
+                            <a href="../../src/pages/faleconosco.php" class="action-btn">
+                                <span>➕</span> Novo Projeto
+                            </a>
+
+                            <a href="../database/exportar_servicos.php" class="action-btn"
+                                style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <span>📊</span> Exportar CSV
+                            </a>
                         </div>
-                        <?php endforeach?>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="section-title">Atividades Recentes</h3>
+                        <div class="recent-activity">
+                            <?php foreach ($titulosRecentes as $titulo): ?>
+                                <div class="activity-item">
+                                    <div class="activity-icon">✅</div>
+                                    <div class="activity-content">
+                                        <div class="activity-title"><?= htmlspecialchars($titulo['titulo_comentario']) ?>
+                                        </div>
+                                        <div class="activity-time"><?= formatarTempoPassado($titulo['data_criacao']) ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
 
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -340,7 +414,7 @@ function formatarTempoPassado($data_criacao) {
                 button.addEventListener('click', function() {
                     const servicoId = this.dataset.servicoId;
                     const comentariosAdicionais = document.getElementById(`comentarios-adicionais-${servicoId}`);
-                    
+
                     if (comentariosAdicionais) {
                         const comentariosOcultos = comentariosAdicionais.querySelectorAll('.comentario-oculto');
                         comentariosOcultos.forEach(comentario => {
@@ -354,6 +428,12 @@ function formatarTempoPassado($data_criacao) {
         });
     </script>
     <script src="../js/perfilUsuarios.js"></script>
+    <!-- JSs -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="../js/acessibilidade.js"></script>
 </body>
 
 </html>
